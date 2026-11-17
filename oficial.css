@@ -1,0 +1,1980 @@
+/* ==========================================================================
+   VITALIA - ALMACÉN SALUDABLE | WEB OFICIAL
+   ESTILO HIGH-IMPACT / ADIDAS LIFESTYLE & ORGANIC WELLNESS
+   ========================================================================== */
+
+:root {
+  --color-black: #0a0d0b;
+  --color-dark: #121815;
+  --color-dark-surface: #1a231f;
+  --color-dark-border: #283630;
+  
+  --color-primary: #10b981;
+  --color-primary-hover: #059669;
+  --color-primary-dark: #0f3826;
+  --color-neon-mint: #00e676;
+  
+  --color-earth-sand: #f7f6f0;
+  --color-earth-border: #e6e3d8;
+  --color-earth-dark: #8c7355;
+  
+  --color-white: #ffffff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-900: #111827;
+
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 14px 30px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 25px rgba(16, 185, 129, 0.25);
+  
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset y base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-white);
+  color: var(--color-gray-900);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Tipografía de Alto Impacto (Adidas Style) */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.headline-massive {
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.headline-section {
+  font-size: clamp(1.8rem, 3.8vw, 2.75rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.eyebrow-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+/* ========================================================
+   TOP TICKER / ANNOUNCEMENT BAR (ADIDAS MARQUEE STYLE)
+   ======================================================== */
+.top-ticker-bar {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 0.55rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  overflow: hidden;
+  position: relative;
+  z-index: 60;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ticker-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+}
+
+/* ========================================================
+   HEADER & NAVBAR (ADIDAS ULTRA-CLEAN STICKY NAV)
+   ======================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-gray-200);
+  transition: all var(--transition-fast);
+}
+
+.site-header.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.header-container {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Logo con 3 Franjas Botánicas (Homenaje al estilo deportivo Adidas) */
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+.brand-imagotipo-nav {
+  height: 48px;
+  max-width: 180px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transition: transform var(--transition-fast);
+}
+
+.brand-link:hover .brand-imagotipo-nav {
+  transform: scale(1.04);
+}
+
+.brand-emblem {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 28px;
+}
+
+.stripe-leaf {
+  width: 5px;
+  background-color: var(--color-black);
+  border-radius: 2px 2px 0 0;
+  transition: all var(--transition-fast);
+}
+
+.stripe-1 { height: 16px; background-color: var(--color-primary); }
+.stripe-2 { height: 22px; background-color: var(--color-black); }
+.stripe-3 { height: 28px; background-color: var(--color-primary-dark); }
+
+.brand-link:hover .stripe-leaf {
+  transform: scaleY(1.1);
+}
+
+.brand-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.65rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-black);
+}
+
+.brand-tagline {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-primary-hover);
+}
+
+/* Menú de Navegación */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.825rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-gray-900);
+  text-decoration: none;
+  position: relative;
+  padding: 0.35rem 0;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-black);
+  transition: width var(--transition-smooth);
+}
+
+.nav-link:hover {
+  color: var(--color-black);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-badge-pill {
+  font-size: 0.65rem;
+  background: var(--color-primary);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+/* Acciones del Header */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-bizplan-bridge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  background: #f0fdf4;
+  color: var(--color-primary-dark);
+  border: 1px solid #bbf7d0;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-bizplan-bridge:hover {
+  background: var(--color-primary-dark);
+  color: white;
+  border-color: var(--color-primary-dark);
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  color: var(--color-black);
+  transition: all var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background: var(--color-gray-100);
+}
+
+.icon-counter-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: var(--color-black);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-counter-badge.active {
+  background: var(--color-primary);
+}
+
+.mobile-toggle {
+  display: none;
+}
+
+/* ========================================================
+   HERO SECTION (ADIDAS HIGH-IMPACT STATEMENT BANNER)
+   ======================================================== */
+.hero-section {
+  position: relative;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  min-height: 84vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-background-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.42;
+  filter: contrast(1.15) brightness(0.85);
+  transform: scale(1.02);
+  transition: transform 8s ease;
+}
+
+.hero-section:hover .hero-bg-image {
+  transform: scale(1.06);
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg, 
+    rgba(10, 13, 11, 0.95) 0%, 
+    rgba(10, 13, 11, 0.75) 45%, 
+    rgba(10, 13, 11, 0.3) 100%
+  );
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.hero-tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.35rem 0.85rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.hero-tag-badge span.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-neon-mint);
+  box-shadow: 0 0 10px var(--color-neon-mint);
+}
+
+.hero-headline {
+  font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero-headline span.text-gradient {
+  background: linear-gradient(135deg, #ffffff 40%, var(--color-neon-mint) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subhead {
+  font-size: 1.15rem;
+  color: var(--color-gray-200);
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 2.25rem;
+  max-width: 620px;
+}
+
+.hero-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+/* Botones Estilo Adidas: Borde Recto o Mínimo Radio, Alto Contraste */
+.btn-adidas-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1rem 2rem;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid var(--color-white);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.btn-adidas-solid:hover {
+  background-color: var(--color-neon-mint);
+  border-color: var(--color-neon-mint);
+  color: var(--color-black);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-adidas-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  color: var(--color-white);
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.btn-adidas-outline:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-white);
+}
+
+/* Barra de Métricas / Trust Badges */
+.hero-trust-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 2rem;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.trust-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--color-neon-mint);
+}
+
+.trust-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+
+.trust-desc {
+  font-size: 0.7rem;
+  color: var(--color-gray-300);
+}
+
+/* ========================================================
+   CATEGORY DROPS / THE 4-PILLAR GRID (ADIDAS CARDS)
+   ======================================================== */
+.category-drops-section {
+  padding: 4rem 1.5rem;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.cat-drop-card {
+  position: relative;
+  height: 380px;
+  background-color: var(--color-black);
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.75rem;
+  group: hover;
+}
+
+.cat-drop-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.65;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.cat-drop-card:hover .cat-drop-img {
+  transform: scale(1.08);
+  opacity: 0.45;
+}
+
+.cat-drop-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(10, 13, 11, 0.95) 100%);
+}
+
+.cat-drop-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cat-drop-number {
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--color-neon-mint);
+  margin-bottom: 0.25rem;
+}
+
+.cat-drop-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.cat-drop-desc {
+  font-size: 0.8rem;
+  color: var(--color-gray-300);
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.cat-drop-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  border-bottom: 2px solid var(--color-white);
+  padding-bottom: 2px;
+  transition: all var(--transition-fast);
+}
+
+.cat-drop-card:hover .cat-drop-cta {
+  color: var(--color-neon-mint);
+  border-color: var(--color-neon-mint);
+  gap: 0.6rem;
+}
+
+/* ========================================================
+   FEATURED PRODUCTS (CATÁLOGO OFICIAL INTERACTIVO)
+   ======================================================== */
+.catalog-section {
+  padding: 5rem 1.5rem;
+  background-color: var(--color-gray-50);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.catalog-container {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.section-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+/* Tabs de Filtro de Productos */
+.filter-tabs-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.filter-tab-btn {
+  padding: 0.55rem 1.25rem;
+  border-radius: 4px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-gray-700);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.filter-tab-btn:hover {
+  background: var(--color-gray-100);
+  color: var(--color-black);
+}
+
+.filter-tab-btn.active {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+/* Grilla de Productos (Adidas Card Style) */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1.75rem;
+}
+
+.product-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all var(--transition-smooth);
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-4px);
+  border-color: var(--color-gray-300);
+}
+
+.product-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background: #f8f8f8;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.06);
+}
+
+/* Badge de Estado del Producto */
+.product-badge-flag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.product-badge-flag.exclusive {
+  background: var(--color-primary-dark);
+  color: var(--color-neon-mint);
+}
+
+.product-badge-flag.bestseller {
+  background: #b45309;
+}
+
+.product-badge-flag.organic {
+  background: var(--color-primary);
+}
+
+.btn-wishlist {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  color: var(--color-gray-600);
+  transition: all var(--transition-fast);
+}
+
+.btn-wishlist:hover,
+.btn-wishlist.active {
+  color: #ef4444;
+  background: white;
+  transform: scale(1.1);
+}
+
+/* Overlay de Vista Rápida en Desktop */
+.quick-view-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  transform: translateY(100%);
+  transition: transform var(--transition-fast);
+  display: flex;
+  justify-content: center;
+}
+
+.product-card:hover .quick-view-overlay {
+  transform: translateY(0);
+}
+
+.btn-quick-view {
+  background: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Detalles del Producto */
+.product-details {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-category-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gray-600);
+  margin-bottom: 0.25rem;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--color-black);
+  line-height: 1.25;
+  margin-bottom: 0.4rem;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: #f59e0b;
+  margin-bottom: 0.75rem;
+}
+
+.product-rating span.review-count {
+  color: var(--color-gray-600);
+  font-size: 0.7rem;
+}
+
+.product-desc {
+  font-size: 0.8rem;
+  color: var(--color-gray-600);
+  line-height: 1.45;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Selector de Gramos / Frasco (Píldoras) */
+.product-variants-wrap {
+  margin-bottom: 1rem;
+}
+
+.variant-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-gray-600);
+  margin-bottom: 0.35rem;
+}
+
+.variant-chips {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.variant-chip {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--color-gray-300);
+  background: white;
+  border-radius: 2px;
+  cursor: pointer;
+  color: var(--color-gray-700);
+  transition: all var(--transition-fast);
+}
+
+.variant-chip:hover {
+  border-color: var(--color-black);
+}
+
+.variant-chip.active {
+  background: var(--color-black);
+  color: white;
+  border-color: var(--color-black);
+}
+
+/* Precios y Botón de Añadir */
+.product-footer-row {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-gray-100);
+}
+
+.product-price-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.current-price {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+  line-height: 1;
+}
+
+.old-price {
+  font-size: 0.75rem;
+  color: var(--color-gray-600);
+  text-decoration: line-through;
+}
+
+.btn-add-cart {
+  padding: 0.65rem 1.15rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-add-cart:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+.btn-add-cart.added {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-neon-mint);
+}
+
+/* ========================================================
+   FLAGSHIP INNOVATION SPOTLIGHT: CREMA ANDINA CRUNCH
+   (ADIDAS SNEAKER REVEAL STYLE APPLIED TO ORGANIC FOOD)
+   ======================================================== */
+.innovation-section {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 6rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--color-dark-border);
+  border-bottom: 1px solid var(--color-dark-border);
+}
+
+.innovation-ambient-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.innovation-container {
+  max-width: 1480px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.innovation-media {
+  position: relative;
+}
+
+.innovation-image-frame {
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, #25332c 0%, #121815 100%);
+  border: 1px solid var(--color-dark-border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.innovation-img {
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.6));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+.badge-innovation-callout {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(10, 13, 11, 0.85);
+  border: 1px solid var(--color-primary);
+  padding: 0.65rem 1rem;
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+}
+
+.badge-innovation-callout strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-neon-mint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-innovation-callout span {
+  font-size: 0.7rem;
+  color: var(--color-gray-300);
+}
+
+.innovation-headline {
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.innovation-subtext {
+  font-size: 1rem;
+  color: var(--color-gray-300);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Formula Breakdown Pills */
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.formula-card {
+  background: var(--color-dark-surface);
+  border: 1px solid var(--color-dark-border);
+  padding: 0.85rem;
+  border-radius: 4px;
+}
+
+.formula-percent {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--color-neon-mint);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.formula-name {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: white;
+}
+
+.formula-benefit {
+  font-size: 0.7rem;
+  color: var(--color-gray-400);
+}
+
+/* Comparison Bar */
+.comparison-card {
+  background: rgba(0, 0, 0, 0.35);
+  border-left: 3px solid var(--color-primary);
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.comparison-card p {
+  font-size: 0.8rem;
+  color: var(--color-gray-300);
+  line-height: 1.5;
+}
+
+/* ========================================================
+   "NUESTRA HISTORIA" (ADIDAS EDITORIAL BRAND STORYTELLING)
+   ======================================================== */
+.story-section {
+  padding: 6rem 1.5rem;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.story-container {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.story-editorial-hero {
+  max-width: 860px;
+  margin: 0 auto 4rem auto;
+  text-align: center;
+}
+
+.story-headline {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  color: var(--color-black);
+}
+
+.story-lead {
+  font-size: 1.2rem;
+  color: var(--color-gray-700);
+  line-height: 1.7;
+}
+
+/* Timeline Editorial de 3 Hitos */
+.story-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.story-milestone-card {
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  padding: 2.25rem 1.75rem;
+  border-radius: 4px;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.story-milestone-card:hover {
+  border-color: var(--color-black);
+  background: white;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.milestone-year-pill {
+  display: inline-block;
+  background: var(--color-black);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  margin-bottom: 1rem;
+}
+
+.milestone-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.milestone-text {
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+  line-height: 1.6;
+}
+
+/* Quote de los Fundadores */
+.founder-quote-banner {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-left: 6px solid var(--color-primary);
+  padding: 2.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.founder-avatar-box {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-primary-dark);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.founder-quote-content blockquote {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.founder-quote-content cite {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-gray-700);
+  font-style: normal;
+}
+
+/* ========================================================
+   SUSTAINABILITY & VALUES (ADIDAS PRIMEBLUE / PARLEY STYLE)
+   ======================================================== */
+.sustainability-section {
+  padding: 5rem 1.5rem;
+  background-color: var(--color-earth-sand);
+  border-bottom: 1px solid var(--color-earth-border);
+}
+
+.sustainability-container {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.value-card {
+  background: white;
+  padding: 2rem;
+  border: 1px solid var(--color-earth-border);
+  border-radius: 4px;
+}
+
+.value-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.value-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  margin-bottom: 0.5rem;
+}
+
+.value-desc {
+  font-size: 0.825rem;
+  color: var(--color-gray-600);
+  line-height: 1.55;
+}
+
+/* ========================================================
+   TESTIMONIALS & COMMUNITY PROOF
+   ======================================================== */
+.reviews-section {
+  padding: 5rem 1.5rem;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.reviews-container {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.review-card {
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  padding: 2rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-stars {
+  color: #f59e0b;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  color: var(--color-gray-700);
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.review-author-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-black);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.review-author-info strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-black);
+}
+
+.review-author-info span {
+  font-size: 0.7rem;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+/* ========================================================
+   NEWSLETTER / CLUB VITALIA BANNER
+   ======================================================== */
+.newsletter-banner {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 4.5rem 1.5rem;
+}
+
+.newsletter-container {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.newsletter-headline {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-subhead {
+  font-size: 1rem;
+  color: var(--color-gray-300);
+  margin-bottom: 2rem;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  background: #1c2420;
+  border: 1px solid #33443b;
+  color: white;
+  font-size: 0.875rem;
+  outline: none;
+  border-radius: 2px;
+}
+
+.newsletter-input:focus {
+  border-color: var(--color-neon-mint);
+}
+
+/* ========================================================
+   SLIDING CART DRAWER (ADIDAS FLYOUT PANEL)
+   ======================================================== */
+.cart-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+}
+
+.cart-drawer-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  background: white;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform var(--transition-smooth);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
+}
+
+.cart-drawer.active {
+  transform: translateX(0);
+}
+
+.cart-drawer-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-drawer-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.btn-close-drawer {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-black);
+}
+
+/* Barra de Envío Gratis */
+.shipping-progress-wrap {
+  padding: 0.85rem 1.5rem;
+  background: #f0fdf4;
+  border-bottom: 1px solid #dcfce7;
+  font-size: 0.75rem;
+  color: var(--color-primary-dark);
+}
+
+.shipping-progress-bar {
+  height: 6px;
+  background: #bbf7d0;
+  border-radius: 3px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.shipping-progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  width: 0%;
+  transition: width var(--transition-fast);
+}
+
+/* Lista de Artículos en el Carrito */
+.cart-items-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-empty-state {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--color-gray-600);
+}
+
+.cart-empty-state p {
+  font-size: 0.95rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.cart-item-row {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-gray-100);
+  align-items: center;
+}
+
+.cart-item-thumb {
+  width: 70px;
+  height: 70px;
+  border-radius: 2px;
+  object-fit: cover;
+  background: #f3f4f6;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-title {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+.cart-item-variant {
+  font-size: 0.7rem;
+  color: var(--color-gray-600);
+  margin-top: 2px;
+}
+
+.cart-item-price {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-top: 4px;
+}
+
+.cart-qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 2px;
+  margin-top: 0.5rem;
+}
+
+.qty-btn {
+  width: 26px;
+  height: 26px;
+  background: transparent;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty-number {
+  width: 28px;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.btn-remove-item {
+  background: transparent;
+  border: none;
+  color: var(--color-gray-400);
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--transition-fast);
+}
+
+.btn-remove-item:hover {
+  color: #ef4444;
+}
+
+/* Footer del Carrito con Checkout */
+.cart-drawer-footer {
+  padding: 1.5rem;
+  background: var(--color-gray-50);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.jar-recycle-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: #ecfdf5;
+  border-radius: 2px;
+  border: 1px dashed var(--color-primary);
+}
+
+.cart-summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-gray-600);
+  margin-bottom: 0.35rem;
+}
+
+.cart-summary-line.total {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--color-black);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-gray-300);
+}
+
+.address-input-wrap {
+  margin: 1rem 0;
+}
+
+.address-input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.address-input:focus {
+  border-color: var(--color-black);
+}
+
+.btn-whatsapp-checkout {
+  width: 100%;
+  padding: 1rem;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.btn-whatsapp-checkout:hover {
+  background-color: #1eb956;
+  transform: translateY(-2px);
+}
+
+/* ========================================================
+   MODAL DE VISTA RÁPIDA (QUICK VIEW MODAL)
+   ======================================================== */
+.quick-view-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 110;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  transition: all var(--transition-fast);
+}
+
+.quick-view-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.quick-view-modal {
+  background: white;
+  max-width: 840px;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.quick-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid var(--color-gray-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.quick-modal-img-wrap {
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.quick-modal-img {
+  max-width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+}
+
+.quick-modal-body {
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ========================================================
+   TOAST NOTIFICATION
+   ======================================================== */
+.toast-notification {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--color-black);
+  color: white;
+  padding: 0.85rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.825rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition-smooth);
+}
+
+.toast-notification.active {
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-neon-mint);
+}
+
+/* ========================================================
+   MEGA FOOTER (ADIDAS MINIMALIST DARK LAYOUT)
+   ======================================================== */
+.site-footer {
+  background-color: var(--color-black);
+  color: var(--color-gray-300);
+  padding: 5rem 1.5rem 2rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-container {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.footer-brand-name {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand-manifesto {
+  font-size: 0.85rem;
+  color: var(--color-gray-400);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 360px;
+}
+
+.footer-bizplan-card {
+  background: #17221d;
+  border: 1px solid var(--color-primary-dark);
+  padding: 1.25rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-bizplan-card strong {
+  font-size: 0.85rem;
+  color: var(--color-neon-mint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-bizplan-card p {
+  font-size: 0.75rem;
+  color: var(--color-gray-300);
+}
+
+.footer-bizplan-link {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: white;
+  text-decoration: underline;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+.footer-col-title {
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 1.25rem;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-link-item a {
+  font-size: 0.8rem;
+  color: var(--color-gray-400);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-link-item a:hover {
+  color: white;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+}
+
+/* ========================================================
+   RESPONSIVIDAD MÓVIL
+   ======================================================== */
+@media (max-width: 1024px) {
+  .category-grid,
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .story-timeline-grid,
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .innovation-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+  .category-grid,
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  .quick-view-modal {
+    grid-template-columns: 1fr;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-headline {
+    font-size: 2.6rem;
+  }
+}
