@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VITALIA - Almacén Saludable | Plan de Negocios Integral (Ranelagh)</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Favicon oficial con el Isotipo -->
+  <link rel="icon" type="image/jpeg" href="isotipo.jpg">
+  <link rel="apple-touch-icon" href="isotipo.jpg">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-[#f8faf7] text-gray-800">
+
+  <!-- Barra de Progreso de Lectura -->
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <!-- Elementos Decorativos Botánicos Flotantes -->
+  <svg class="deco-leaf deco-leaf-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100,10 Q160,50 150,110 Q140,170 100,190 Q60,170 50,110 Q40,50 100,10Z" fill="#2d6a4f" />
+    <path d="M100,30 Q100,100 100,180" stroke="#1b4332" stroke-width="2" fill="none" />
+  </svg>
+  <svg class="deco-leaf deco-leaf-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20,100 Q80,20 150,60 Q180,80 160,140 Q140,180 80,170 Q30,160 20,100Z" fill="#52b788" />
+  </svg>
+  <svg class="deco-leaf deco-leaf-3" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="100" cy="100" rx="70" ry="90" fill="#40916c" transform="rotate(15 100 100)" />
+    <path d="M100,20 Q100,100 100,180" stroke="#2d6a4f" stroke-width="2" fill="none" />
+  </svg>
+
+  <!-- ========================================================
+       CABECERA PRINCIPAL (APP HEADER)
+       ======================================================== -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <div class="brand-logo-badge" style="padding: 3px; overflow: hidden; background: #ffffff;">
+          <img src="isotipo.jpg" alt="Vitalia Isotipo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <div class="brand-text">
+          <h1>VITALIA</h1>
+          <p>Almacén Saludable • Ranelagh, Buenos Aires</p>
+        </div>
+      </div>
+
+      <!-- Buscador y Acciones -->
+      <div class="header-actions">
+        <!-- Enlace a la Tienda Web Oficial -->
+        <a href="web_oficial.html" target="_blank" class="btn-store-link"
+          title="Visitar la Página Web Oficial de Vitalia">
+          <span>🛍️ Tienda Oficial Web ↗</span>
+          <span class="store-badge-live">ONLINE</span>
+        </a>
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="globalSearchInput" placeholder="Buscar en los 20 puntos...">
+        </div>
+        <button id="btnPrintReport" class="btn btn-outline-white">
+          🖨️ Imprimir / Guardar PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       BANNER DE ACCESO A LA PÁGINA WEB OFICIAL
+       ======================================================== -->
+  <aside class="official-store-banner">
+    <div class="banner-inner">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <span class="banner-badge">🌾 NUEVA WEB OFICIAL</span>
+        <span class="banner-text">¿Querés comprar o conocer los productos y la historia de Vitalia? Ya podés explorar la
+          <strong>Página Web Oficial</strong> con estética vanguardista estilo Adidas, catálogo interactivo, selector de
+          gramos y pedidos directos por WhatsApp.</span>
+      </div>
+      <a href="web_oficial.html" target="_blank" class="banner-cta">
+        <span>Visitar Web Oficial</span>
+        <span>➔</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ========================================================
+       BARRA DE NAVEGACIÓN POR CATEGORÍAS TEMÁTICAS
+       ======================================================== -->
+  <nav class="category-nav-bar">
+    <div class="category-nav-container">
+      <button class="cat-pill active" data-category="all">
+        📑 Todos los Puntos (1-20)
+      </button>
+      <button class="cat-pill" data-category="identidad">
+        🌱 1. Identidad & Concepto (Ptos 1-3)
+      </button>
+      <button class="cat-pill" data-category="pitch-metas">
+        🎙️ 2. Pitch & Metas (Ptos 4-6)
+      </button>
+      <button class="cat-pill" data-category="catalogo">
+        🥣 3. Catálogo & Innovación (Ptos 7-9)
+      </button>
+      <button class="cat-pill" data-category="finanzas">
+        💰 4. Finanzas & Costos (Ptos 10-11)
+      </button>
+      <button class="cat-pill" data-category="clientes-foda">
+        📊 5. Clientes & FODA (Ptos 12-15)
+      </button>
+      <button class="cat-pill" data-category="marketing">
+        🎨 6. Branding & Redes (Ptos 16-17)
+      </button>
+      <button class="cat-pill" data-category="gestion">
+        📈 7. Canvas, AFIP & Gantt (Ptos 18-20)
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========================================================
+       BARRA DE SALTO RÁPIDO NUMÉRICO (1 AL 20)
+       ======================================================== -->
+  <div class="points-quick-bar">
+    <div class="points-quick-container">
+      <span class="text-xs font-bold text-gray-500 uppercase tracking-wider mr-2">Puntos:</span>
+      <button class="point-chip active" data-point="1">1</button>
+      <button class="point-chip" data-point="2">2</button>
+      <button class="point-chip" data-point="3">3</button>
+      <button class="point-chip" data-point="4">4</button>
+      <button class="point-chip" data-point="5">5</button>
+      <button class="point-chip" data-point="6">6</button>
+      <button class="point-chip" data-point="7">7</button>
+      <button class="point-chip" data-point="8">8</button>
+      <button class="point-chip" data-point="9">9</button>
+      <button class="point-chip" data-point="10">10</button>
+      <button class="point-chip" data-point="11">11</button>
+      <button class="point-chip" data-point="12">12</button>
+      <button class="point-chip" data-point="13">13</button>
+      <button class="point-chip" data-point="14">14</button>
+      <button class="point-chip" data-point="15">15</button>
+      <button class="point-chip" data-point="16">16</button>
+      <button class="point-chip" data-point="17">17</button>
+      <button class="point-chip" data-point="18">18</button>
+      <button class="point-chip" data-point="19">19</button>
+      <button class="point-chip" data-point="20">20</button>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       CONTENIDO PRINCIPAL: DESARROLLO DE LOS 20 PUNTOS
+       ======================================================== -->
+  <main class="main-content">
+
+    <!-- ==========================================
+         PUNTO 1: DATOS PERSONALES DEL EMPRENDIMIENTO
+         ========================================== -->
+    <article id="punto-1" class="section-card" data-category="identidad">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">1</span>
+          <div>
+            <h2 class="section-title">Datos Personales del Emprendimiento</h2>
+            <p class="section-subtitle">Identificación formal, localización geográfica en Ranelagh, canales de contacto
+              y horarios de funcionamiento.</p>
+          </div>
+        </div>
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Ranelagh, Bs. As.</span>
+      </div>
+      <div class="section-body">
+        <div class="grid-2">
+          <div class="info-card">
+            <h4><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="#1b4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> A. Nombre del Emprendimiento & Justificación</h4>
+            <p class="text-xl font-extrabold text-[#1b4332] mb-1">VITALIA - Almacén Saludable</p>
+            <p class="text-sm text-gray-700 leading-relaxed bg-[#f4fbf7] p-3 rounded-lg border border-[#d0e5dd]">
+              <strong>¿Por qué se llama así?:</strong> El nombre <em>Vitalia</em> proviene de la raíz latina
+              <em>vitalis</em> ("perteneciente a la vida, dotado de fuerza vital"). Sintetiza nuestra creencia
+              fundacional: los alimentos no son simples calorías, sino una fuente viva de salud, bienestar físico y
+              longevidad cuando se consumen en su estado natural, libres de agrotóxicos y ultraprocesamiento.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h4>📍 B. Domicilio, Localidad y Provincia</h4>
+            <p class="font-bold text-gray-800">Calle 361 N° 1245 entre calles 312 y 313</p>
+            <p class="text-sm text-gray-600 mb-2">Localidad: <strong>Ranelagh (Código Postal 1888)</strong>, Partido de
+              Berazategui, Provincia de Buenos Aires.</p>
+            <p class="text-xs text-[#52796f] italic">
+              Estratégicamente emplazado en la zona comercial-residencial de mayor crecimiento de Ranelagh,
+              caracterizada por su frondosa arboleda, vida familiar y comunidad con alta conciencia ecológica.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3 mt-4">
+          <div class="info-card">
+            <h4>📞 C. Teléfonos</h4>
+            <ul class="text-sm space-y-1">
+              <li><strong>Teléfono / WhatsApp:</strong> +54 9 11 3755-4748</li>
+              <li><strong>Línea Pedidos Directa:</strong> +54 9 11 3755-4748</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>✉️ D. Mail y Sitio Web</h4>
+            <ul class="text-sm space-y-1">
+              <li><strong>Mail Oficial:</strong> Vitaliaranelagh@gmail.com</li>
+              <li><strong>Tienda Web Oficial:</strong> <a href="web_oficial.html" target="_blank"
+                  class="text-emerald-700 underline font-bold hover:text-emerald-900">www.vitalia-almacen.com.ar (Abrir
+                  Web Oficial) ↗</a></li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>📱 E, F, G. Redes Sociales</h4>
+            <ul class="text-sm space-y-1">
+              <li><strong>Instagram:</strong> <a href="https://instagram.com/VitaliaRanelagh" target="_blank"
+                  class="text-emerald-700 hover:underline">@VitaliaRanelagh</a></li>
+              <li><strong>TikTok:</strong> <a href="https://tiktok.com/@VitaliaRanelagh" target="_blank"
+                  class="text-emerald-700 hover:underline">@VitaliaRanelagh</a></li>
+              <li><strong>Facebook:</strong> /vitalia.ranelagh</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-2 mt-4">
+          <div class="info-card">
+            <h4>📦 H & I. Rubro y Descripción Breve</h4>
+            <p class="text-sm font-bold text-gray-800 mb-1">Rubro: Comercio minorista de alimentos saludables, dietética
+              moderna y productos agroecológicos a granel.</p>
+            <div class="highlight-box">
+              <p class="text-xs uppercase font-bold text-emerald-800 mb-1">Descripción del rubro (máximo 2 renglones):
+              </p>
+              <p class="text-sm text-gray-800">Comercialización consciente de alimentos naturales, orgánicos, sin TACC y
+                a granel, orientados a la salud integral y la sustentabilidad ambiental.</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>⏰ J & K. Horarios y Fecha de Inicio</h4>
+            <ul class="text-sm space-y-1.5 text-gray-700">
+              <li><strong>Atención al público en tienda:</strong> Lunes a Sábados de 09:00 a 13:30 hs y de 16:30 a 20:30
+                hs.</li>
+              <li><strong>Producción y fraccionamiento:</strong> Lunes, Miércoles y Viernes de 07:30 a 09:00 hs.</li>
+              <li><strong>Recepción de mercadería/quintas:</strong> Martes y Jueves de 08:00 a 10:00 hs.</li>
+              <li><strong>Envíos a domicilio en zona sur:</strong> Lunes a Sábados de 14:00 a 16:30 hs.</li>
+              <li class="pt-2 text-emerald-900 font-bold border-t border-gray-100">📅 Fecha de inicio de actividades: 1
+                de Septiembre de 2026.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 2: HISTORIA DEL EMPRENDIMIENTO (18 RENGLONES)
+         ========================================== -->
+    <article id="punto-2" class="section-card" data-category="identidad">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">2</span>
+          <div>
+            <h2 class="section-title">Historia de Cómo Surge el Emprendimiento</h2>
+            <p class="section-subtitle">Relato testimonial y vocacional del surgimiento de Vitalia en los senderos
+              arbolados de Ranelagh.</p>
+          </div>
+        </div>
+        <span class="lines-counter">Extensión: 18 renglones exactos</span>
+      </div>
+      <div class="section-body">
+        <div class="quote-history" id="historiaText">Vitalia nació de una frustración cotidiana que yo, Selena, vivía
+          cada vez que intentaba llenar mi alacena de forma saludable.
+          Cerca de mi casa en Ranelagh no había ningún mercado natural que valiera la pena para hacer las compras del
+          día a día.
+          Existía apenas una única dietética en la zona, pero sus precios eran excesivamente altos y la calidad de la
+          mercadería dejaba mucho que desear.
+          Para conseguir productos frescos, variados y a un valor justo, me veía obligada a viajar constantemente hasta
+          el centro de Berazategui.
+          Esa incomodidad de tener que trasladarme lejos por cosas básicas me hizo notar que muchos vecinos del barrio
+          pasaban por exactamente lo mismo.
+          Decidí transformar ese problema en una solución real: crear un espacio cercano donde comer bien no fuera un
+          lujo ni un esfuerzo.
+          Comencé buscando proveedores directos y productores de confianza para asegurar mercadería noble, fresca y sin
+          intermediarios innecesarios.
+          Con mucho esfuerzo, planificación y el deseo genuino de mejorar la alimentación del barrio, fui dando forma al
+          proyecto Vitalia.
+          Diseñé un concepto de almacén cálido y transparente, priorizando la venta a granel, la frescura real y precios
+          accesibles para todos.
+          Seleccioné cada semilla, harina, fruto seco y producto natural con el mismo criterio exigente con el que
+          elegía la comida para mi propia mesa.
+          Abrimos nuestras puertas en Ranelagh con la convicción de ofrecer la calidad y variedad que antes solo se
+          conseguía yendo hasta el centro.
+          Hoy, Vitalia es el reflejo vivo de esa búsqueda personal: un mercado saludable donde la confianza y el buen
+          precio van de la mano.
+          Los vecinos ya no tienen que viajar lejos ni resignar calidad para cuidar su alimentación y la de sus
+          familias.
+          Nos consolidamos como ese punto de encuentro barrial donde además de comprar rico y sano, siempre hay una
+          recomendación honesta.
+          Acompañamos a cada persona en su camino hacia hábitos más conscientes que nutren el cuerpo y cuidan el
+          bolsillo de verdad.
+          Cada producto en nuestras estanterías representa el compromiso de acercar comida real y accesible a la puerta
+          de tu casa.
+          Lo que empezó como una necesidad propia terminó convirtiéndose en el refugio saludable que nuestra comunidad
+          tanto merecía.
+          Vitalia es volver a lo natural, resolver lo cotidiano con calidad y celebrar el bienestar junto a nuestros
+          vecinos.</div>
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 3: ACTIVIDADES Y RESPONSABLES
+         ========================================== -->
+    <article id="punto-3" class="section-card" data-category="identidad">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">3</span>
+          <div>
+            <h2 class="section-title">Actividades y Responsables</h2>
+            <p class="section-subtitle">Distribución operativa de funciones, roles asignados y cómputo semanal de horas
+              dedicadas.</p>
+          </div>
+        </div>
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">82 Horas Semanales
+          Totales</span>
+      </div>
+      <div class="section-body">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Actividad</th>
+                <th>Responsable/s</th>
+                <th>Frecuencia Habitual</th>
+                <th class="text-center">Horas Dedicadas (Semanal)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold">Planificación comercial, compras mayoristas y finanzas generales</td>
+                <td>Selena Ruiz Diaz (Fundadora)</td>
+                <td>Lunes y Jueves</td>
+                <td class="text-center font-bold text-emerald-800">14 hs</td>
+              </tr>
+              <tr>
+                <td class="font-semibold">Recepción de mercadería, control de calidad y fraccionamiento a granel</td>
+                <td>Joaquin Obregon (Co-fundador)</td>
+                <td>Lun, Mié y Vie (turno mañana)</td>
+                <td class="text-center font-bold text-emerald-800">16 hs</td>
+              </tr>
+              <tr>
+                <td class="font-semibold">Atención al cliente en mostrador, asesoramiento nutricional y caja</td>
+                <td>Paula Ruiz Diaz (Nutricionista)</td>
+                <td>Lunes a Viernes y Sábados</td>
+                <td class="text-center font-bold text-emerald-800">28 hs</td>
+              </tr>
+              <tr>
+                <td class="font-semibold">Gestión de pedidos online, WhatsApp comercial y coordinación de envíos</td>
+                <td>Joaquin Obregon & Selena Ruiz Diaz</td>
+                <td>Lunes a Sábados</td>
+                <td class="text-center font-bold text-emerald-800">10 hs</td>
+              </tr>
+              <tr>
+                <td class="font-semibold">Creación de contenidos para redes sociales, fotos y marketing digital</td>
+                <td>Joaquin Obregon (Community Manager)</td>
+                <td>Martes y Jueves</td>
+                <td class="text-center font-bold text-emerald-800">8 hs</td>
+              </tr>
+              <tr>
+                <td class="font-semibold">Limpieza, sanitización de frascos y mantenimiento preventivo del local</td>
+                <td>Equipo Completo (rotativo)</td>
+                <td>Diario (apertura y cierre)</td>
+                <td class="text-center font-bold text-emerald-800">6 hs</td>
+              </tr>
+              <tr class="bg-emerald-50 font-extrabold text-[#1b4332]">
+                <td colspan="3" class="text-right uppercase">Carga Horaria Semanal Total del Equipo:</td>
+                <td class="text-center text-lg text-[#2d6a4f]">82 hs / semana</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+
+    <!-- Separador Visual de Categoría -->
+    <div class="category-divider anim-fade-up">
+      <div class="divider-line"></div>
+      <div class="divider-label">
+        <div class="divider-dot"></div>
+        <span>Pitch & Metas Estratégicas</span>
+        <div class="divider-dot"></div>
+      </div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ==========================================
+         PUNTO 4 & 4.b: PITCH ELEVATOR Y GRABADOR AUDIOVISUAL
+         ========================================== -->
+    <article id="punto-4" class="section-card" data-category="pitch-metas">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">4</span>
+          <div>
+            <h2 class="section-title">Pitch Elevator & Grabador Audiovisual Interactivo</h2>
+            <p class="section-subtitle">Discurso persuasivo de 25 renglones exactos (Intro - Desarrollo - Cierre) con
+              teleprompter, temporizador y grabador WebRTC (1:30 a 3:00 min).</p>
+          </div>
+        </div>
+        <span class="lines-counter">Extensión: 25 renglones exactos</span>
+      </div>
+      <div class="section-body">
+
+        <!-- Teleprompter Interactivo -->
+        <div class="teleprompter-container">
+          <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+            <div class="flex items-center gap-3">
+              <span class="font-bold text-sm tracking-wide text-emerald-400">📜 TELEPROMPTER VITALIA</span>
+              <span id="speedValueDisplay" class="bg-gray-800 px-2 py-0.5 rounded text-xs text-gray-300">Velocidad:
+                2x</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="pitch-timer">
+                ⏱️ <span id="pitchTimerDisplay">00:00</span>
+              </div>
+              <span id="timerStatusBadge" class="text-xs font-bold" style="color: #d97706;">Meta: 1:30 - 3:00 min</span>
+            </div>
+          </div>
+
+          <!-- Pantalla con el Discurso de 25 Renglones -->
+          <div id="teleprompterScreen" class="teleprompter-screen">
+            <div class="teleprompter-text">
+              ¿Sabías que más del 70% de los alimentos que compramos en el supermercado contienen aditivos químicos o
+              excesos de azúcares ocultos?<br>
+              En pleno siglo XXI, comer sano en el conurbano bonaerense se convirtió en un desafío agotador y confuso
+              para miles de familias.<br>
+              Las personas quieren alimentarse mejor, pero terminan pagando sobreprecios absurdos por productos que ni
+              siquiera son tan saludables<br>.
+              Soy Selena, fundadora de Vitalia, y creamos en Ranelagh el primer almacén saludable que democratiza la
+              alimentación consciente y real.<br>
+              En Vitalia unificamos tres soluciones indispensables en un solo espacio cálido, transparente y pensado
+              para el bienestar de la comunidad:<br>
+              primero, una selección rigurosa de alimentos a granel, frutos secos activados, harinas puras y productos
+              certificados 100% libres de gluten.<br>
+              Segundo, canastas agroecológicas de verduras frescas cosechadas en quintas locales de Berazategui y La
+              Plata, sin pesticidas ni agrotóxicos.<br>
+              Y tercero, un sistema innovador de frascos de vidrio retornables que elimina el plástico de un solo uso y
+              premia el compromiso ecológico del vecino.<br>
+              No somos una dietética tradicional donde te despachan sin saber qué necesitás; somos un centro de
+              asesoramiento cercano y empático.<br>
+              En nuestro mostrador te explicamos cómo reemplazar el azúcar, qué harinas usar para cocinar sin TACC y
+              cómo conservar tus legumbres.<br>
+              Además, desarrollamos productos propios innovadores como nuestra Crema Andina Crunch, una combinación
+              funcional única de cajú, cacao y maca.<br>
+              A través de nuestra plataforma web y WhatsApp coordinamos entregas a domicilio en menos de 24 horas en
+              Ranelagh, Berazategui y Hudson.<br>
+              En solo seis meses de compras comunitarias barriales validamos la demanda real con más de 180 familias que
+              compran regularmente.<br>
+              Hoy contamos con un plan de negocio sólido, habilitaciones en trámite, alianzas directas con productores y
+              una ubicación comercial estratégica.<br>
+              Nuestra estructura de costos optimizada nos permite ofrecer precios entre un 15% y un 20% más competitivos
+              que las dietéticas de cadena.<br>
+              Estamos proyectando un punto de equilibrio operativo para el cuarto mes de funcionamiento, con un recupero
+              de inversión en dieciséis meses.<br>
+              Para acelerar el acondicionamiento final del local y la compra del molino de frutos secos, estamos sumando
+              capital de inversión inicial.<br>
+              Te invito a ser parte de esta transformación que no solo es un negocio altamente rentable, sino que genera
+              un impacto positivo en la comunidad.<br>
+              La salud de las personas comienza en el plato de cada día, y en Vitalia estamos sembrando el futuro de la
+              nutrición en zona sur.<br>
+              Estoy convencida de que te va a encantar nuestro proyecto tanto como a nosotros.<br>
+              Acompañanos a llenar de vida a Ranelagh.<br>
+              ¡Te esperamos en Vitalia para nutrir la vida desde la raíz!
+            </div>
+          </div>
+
+          <!-- Controles de Teleprompter -->
+          <div class="teleprompter-controls">
+            <div class="flex items-center gap-3">
+              <button id="btnTogglePrompter" class="btn btn-success">
+                ▶️ Iniciar Teleprompter
+              </button>
+              <button id="btnResetPrompter" class="btn btn-secondary">
+                🔄 Reiniciar
+              </button>
+              <button id="btnSpeakPitch" class="btn btn-secondary">
+                🔊 Escuchar Discurso con IA
+              </button>
+            </div>
+            <div class="flex items-center gap-2 text-xs">
+              <span>Velocidad:</span>
+              <input type="range" id="prompterSpeed" min="1" max="5" value="2" class="w-24">
+            </div>
+          </div>
+        </div>
+
+        <!-- 4.b Grabador Audiovisual en Vivo (WebRTC) -->
+        <div class="recorder-container">
+          <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+            <h4 class="font-bold text-gray-800 text-base flex items-center gap-2">
+              📹 4.b) Grabación Audiovisual en Vivo (Cámara & Micrófono)
+            </h4>
+            <span class="text-xs text-gray-500">Duración reglamentaria: entre 1:30 y 3:00 minutos</span>
+          </div>
+
+          <div class="video-preview-wrapper">
+            <video id="videoLivePreview" class="video-preview" autoplay muted playsinline></video>
+            <div id="recIndicator" class="rec-indicator" style="display: none;">
+              <span class="w-2.5 h-2.5 rounded-full bg-white"></span> GRABANDO EN VIVO
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center gap-3">
+            <button id="btnStartRecord" class="btn btn-primary">
+              🔴 Iniciar Grabación de Video
+            </button>
+            <button id="btnStopRecord" class="btn btn-danger" style="display: none;">
+              ⏹️ Detener Grabación y Procesar
+            </button>
+          </div>
+
+          <!-- Reproductor de Video Grabado -->
+          <div id="recordedVideoContainer" class="mt-4 pt-4 border-t border-gray-200" style="display: none;">
+            <p class="text-sm font-bold text-emerald-800 mb-2">🎉 ¡Pitch grabado exitosamente! Podés revisarlo o
+              descargarlo:</p>
+            <video id="videoRecordedPreview" class="w-full max-w-lg mx-auto rounded-lg shadow" controls></video>
+            <div class="text-center mt-3">
+              <a id="btnDownloadVideo" class="btn btn-success" download="Vitalia_Pitch_Elevator.webm">
+                ⬇️ Descargar Video Grabado (.webm)
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 5: DESCRIPCIÓN GENERAL DE "MI NEGOCIO"
+         ========================================== -->
+    <article id="punto-5" class="section-card" data-category="pitch-metas">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">5</span>
+          <div>
+            <h2 class="section-title">Descripción General de “Mi Negocio”</h2>
+            <p class="section-subtitle">Objetivos SMART, sectores de actividad, propósito último (misión), mensajes
+              clave y visión temporal.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+
+        <!-- A) Objetivos SMART -->
+        <div class="mb-6">
+          <h4 class="font-bold text-[#1b4332] text-base mb-2">🎯 A) Objetivo General y 3 Objetivos Específicos SMART
+          </h4>
+          <div class="highlight-box">
+            <p class="font-bold text-emerald-900 text-sm">OBJETIVO GENERAL SMART:</p>
+            <p class="text-sm text-gray-800 mt-1">Consolidar a Vitalia como el almacén saludable de referencia en
+              Ranelagh y Berazategui, alcanzando una cartera recurrente de 400 clientes mensuales y una facturación neta
+              promedio de $14.500.000 ARS mensuales al cabo de los primeros 12 meses de operación comercial.</p>
+          </div>
+          <div class="grid-3 mt-3">
+            <div class="info-card">
+              <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">SMART 1: Ventas</span>
+              <p class="text-xs text-gray-700 mt-2">Captar 150 clientes recurrentes y lograr un ticket promedio de
+                $28.000 ARS durante los primeros 90 días desde la apertura formal.</p>
+            </div>
+            <div class="info-card">
+              <span class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">SMART 2:
+                Sustentabilidad</span>
+              <p class="text-xs text-gray-700 mt-2">Lograr que el 45% de las ventas a granel se despachen en frascos
+                retornables en 6 meses, evitando más de 3.000 bolsas plásticas descartables.</p>
+            </div>
+            <div class="info-card">
+              <span class="text-xs font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-800">SMART 3: Alianzas</span>
+              <p class="text-xs text-gray-700 mt-2">Firmar convenios directos con 4 cooperativas agroecológicas locales
+                durante el primer cuatrimestre para garantizar márgenes brutos superiores al 38%.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- B) Sector de Actividad -->
+        <div class="mb-6">
+          <h4 class="font-bold text-[#1b4332] text-base mb-2">🏭 B) Sector de Actividad</h4>
+          <div class="grid-3">
+            <div class="info-card border-l-4 border-l-emerald-600">
+              <p class="font-bold text-sm text-gray-800">[X] Comercio (vendo lo que otros fabrican)</p>
+              <p class="text-xs text-gray-600 mt-1">Comercialización minorista de productos secos envasados, alimentos
+                certificados Sin TACC, leches vegetales y marcas orgánicas.</p>
+            </div>
+            <div class="info-card border-l-4 border-l-amber-600">
+              <p class="font-bold text-sm text-gray-800">[X] Producción (vendo mis propios productos)</p>
+              <p class="text-xs text-gray-600 mt-1">Elaboración propia de granolas horneadas artesanales, mezclas
+                funcionales, frutos secos activados y la Crema Andina Crunch.</p>
+            </div>
+            <div class="info-card border-l-4 border-l-blue-600">
+              <p class="font-bold text-sm text-gray-800">[X] Servicio (asesoramiento y logística)</p>
+              <p class="text-xs text-gray-600 mt-1">Asesoría nutricional en mostrador y servicio de delivery programado
+                con conservación térmica en toda la zona sur.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- C) Misión -->
+        <div class="mb-6">
+          <h4 class="font-bold text-[#1b4332] text-base mb-2">🌟 C) Misión (Propósito Último)</h4>
+          <p
+            class="p-4 bg-emerald-50 rounded-lg border border-emerald-200 text-sm text-emerald-950 font-medium leading-relaxed">
+            «Nutrir y transformar la calidad de vida de nuestra comunidad en Ranelagh, brindando acceso sencillo y
+            confiable a alimentos limpios, agroecológicos y sin aditivos, promoviendo el consumo responsable y el
+            cuidado del medio ambiente a través de la educación y el trato humano cercano.»
+          </p>
+        </div>
+
+        <!-- D) Ideas y Mensajes -->
+        <div class="mb-6">
+          <h4 class="font-bold text-[#1b4332] text-base mb-2">💬 D) Ideas que quiero transmitir sobre mi negocio (máx. 3
+            palabras)</h4>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 35%;">Qué quiero transmitir (Idea central)</th>
+                  <th>Qué percibe la otra persona (Mensaje asimilado)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-bold text-emerald-900">1. Nutrición Real Consciente</td>
+                  <td>«En Vitalia encuentro alimentos limpios, puros, sin azúcar oculta ni ultraprocesados engañosos;
+                    comida que nutre de verdad.»</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-emerald-900">2. Confianza Cercana Humana</td>
+                  <td>«No me atienden de apuro: me escuchan, me enseñan a cocinar sin gluten y se preocupan sinceramente
+                    por la salud de mi familia.»</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-emerald-900">3. Consciencia Sostenible Local</td>
+                  <td>«Comprando acá apoyo a las quintas agroecológicas de la zona y elimino el plástico de un solo uso
+                    llevando mis frascos de vidrio.»</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- E, F, G: Dónde, Con quién y Productos prioritarios -->
+        <div class="grid-3 mb-6">
+          <div class="info-card">
+            <h4>📍 e) ¿Dónde realizo mi actividad?</h4>
+            <p class="text-sm text-gray-700">En nuestro local comercial a la calle en Calle 361 N° 1245 (Ranelagh),
+              complementado con plataforma web para envíos en Ranelagh, Berazategui, Hudson y Quilmes.</p>
+          </div>
+          <div class="info-card">
+            <h4>👥 f) ¿Con quién realizo mi actividad?</h4>
+            <p class="text-sm text-gray-700 font-semibold">[X] Con familiares y colaboradores</p>
+            <p class="text-xs text-gray-600 mt-1">Emprendimiento de Compañeros y familiar (Selena y Joaquin)
+              complementado con una nutricionista (Paula) y un responsable de comunicación.</p>
+          </div>
+          <div class="info-card">
+            <h4>⭐ g) Productos por orden de prioridad</h4>
+            <ol class="text-xs text-gray-700 space-y-1 list-decimal pl-4">
+              <li>Frutos secos activados, semillas y legumbres a granel.</li>
+              <li>Alimentos certificados Sin TACC (pastas, harinas).</li>
+              <li>Bolsones de verduras y frutas agroecológicas.</li>
+              <li>Superalimentos (maca, espirulina, matcha).</li>
+              <li>Línea propia: Crema Andina Crunch y granolas.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- H) Visión Temporal -->
+        <div>
+          <h4 class="font-bold text-[#1b4332] text-base mb-2">🔭 h) Visión (A dónde queremos llegar)</h4>
+          <div class="grid-4">
+            <div class="info-card border-t-4 border-t-emerald-500">
+              <span class="text-xs font-bold text-emerald-700">Próximo año</span>
+              <p class="text-xs text-gray-700 mt-2">Consolidar el local físico en Ranelagh, alcanzar el punto de
+                equilibrio financiero y afianzar la logística de delivery en zona sur.</p>
+            </div>
+            <div class="info-card border-t-4 border-t-teal-500">
+              <span class="text-xs font-bold text-teal-700">De 1 a 3 años</span>
+              <p class="text-xs text-gray-700 mt-2">Adquirir maquinaria industrial para la línea de untables propios y
+                abrir un segundo punto de venta en City Bell o Quilmes.</p>
+            </div>
+            <div class="info-card border-t-4 border-t-amber-500">
+              <span class="text-xs font-bold text-amber-700">Más de 3 años</span>
+              <p class="text-xs text-gray-700 mt-2">Desarrollar un modelo de franquicia sustentable de impacto B
+                certificado para todo el corredor sur bonaerense.</p>
+            </div>
+            <div class="info-card border-t-4 border-t-indigo-500">
+              <span class="text-xs font-bold text-indigo-700">Más de 10 años</span>
+              <p class="text-xs text-gray-700 mt-2">Ser la marca referente de nutrición regenerativa de la provincia con
+                centro de distribución comunitaria y escuela de hábitos.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 6: TRES NECESIDADES ATENDIDAS
+         ========================================== -->
+    <article id="punto-6" class="section-card" data-category="pitch-metas">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">6</span>
+          <div>
+            <h2 class="section-title">¿Qué Tres Necesidades Estamos Atendiendo?</h2>
+            <p class="section-subtitle">Dolores y problemas cotidianos que resuelve la propuesta integral de Vitalia en
+              su comunidad.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="grid-3">
+          <div class="info-card bg-[#fbfdfc] border-l-4 border-l-emerald-600">
+            <h4 class="text-emerald-900">🌱 a) Acceso local a comida real sin venenos</h4>
+            <p class="text-sm text-gray-700 mt-2 leading-relaxed">
+              Los habitantes de Ranelagh y Berazategui carecían de un almacén cercano con trazabilidad agroecológica
+              garantizada. Vitalia acerca alimentos directos de la quinta familiar a la mesa sin agroquímicos ni
+              intermediarios que encarezcan el producto.
+            </p>
+          </div>
+          <div class="info-card bg-[#fbfdfc] border-l-4 border-l-amber-600">
+            <h4 class="text-amber-900">🛡️ b) Seguridad e inclusión para celíacos y dietas especiales</h4>
+            <p class="text-sm text-gray-700 mt-2 leading-relaxed">
+              Personas con celiaquía, alergias alimentarias (APLV) o dietas basadas en plantas viven con miedo constante
+              a la contaminación cruzada. Ofrecemos góndolas sectorizadas, sellos oficiales y asesoramiento profesional
+              para comprar con tranquilidad.
+            </p>
+          </div>
+          <div class="info-card bg-[#fbfdfc] border-l-4 border-l-teal-600">
+            <h4 class="text-teal-900">♻️ c) Compra a granel económica y sin residuos plásticos</h4>
+            <p class="text-sm text-gray-700 mt-2 leading-relaxed">
+              Comprar envasado obliga a adquirir cantidades fijas y pagar por plástico descartable. Nuestro sistema a
+              granel en frascos retornables permite llevar desde 50 gramos exactos, cuidando la economía familiar y
+              reduciendo la huella de carbono.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Separador Visual de Categoría -->
+    <div class="category-divider anim-fade-up">
+      <div class="divider-line"></div>
+      <div class="divider-label">
+        <div class="divider-dot"></div>
+        <span>Catálogo & Innovación</span>
+        <div class="divider-dot"></div>
+      </div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ==========================================
+         PUNTO 7: DESCRIPCIÓN DE PRINCIPALES PRODUCTOS
+         ========================================== -->
+    <article id="punto-7" class="section-card" data-category="catalogo">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">7</span>
+          <div>
+            <h2 class="section-title">Descripción de Nuestros Principales Productos o Servicios</h2>
+            <p class="section-subtitle">Ficha técnica comparativa siguiendo el modelo de utilidades, necesidades
+              satisfechas y propiedades relevantes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Producto o Servicio</th>
+                <th style="width: 25%;">Qué hace / Para qué sirve</th>
+                <th style="width: 25%;">Qué necesidades satisface</th>
+                <th style="width: 30%;">Propiedades relevantes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-bold text-emerald-900">
+                  Mix Funcional "Vitalia Energy" (Frutos secos activados & semillas)
+                </td>
+                <td class="text-sm text-gray-700">
+                  Aporta energía física y mental sostenida, ácidos grasos esenciales Omega 3-6 y antioxidantes naturales
+                  sin provocar picos de insulina.
+                </td>
+                <td class="text-sm text-gray-700">
+                  • Snack saludable para la oficina o escuela.<br>
+                  • Rendimiento deportivo y recuperación muscular.<br>
+                  • Saciedad limpia entre comidas.
+                </td>
+                <td class="text-xs text-gray-600">
+                  Nueces Chandler partidas a mano, almendras Nonpareil activadas en agua purificada, castañas de cajú
+                  tostadas sin sal, semillas de calabaza y pasas rubias. 100% libre de gluten y sin aceites añadidos.
+                </td>
+              </tr>
+              <tr>
+                <td class="font-bold text-emerald-900">
+                  Bolsón Agroecológico Semanal de Quinta Familiar (7 kg surtidos)
+                </td>
+                <td class="text-sm text-gray-700">
+                  Provee frutas y verduras frescas de estación cosechadas menos de 24 hs antes de la entrega, cultivadas
+                  sin pesticidas sintéticos.
+                </td>
+                <td class="text-sm text-gray-700">
+                  • Nutrición rica en micronutrientes para el hogar.<br>
+                  • Prevención de enfermedades crónicas.<br>
+                  • Apoyo a agricultores del cordón hortícola local.
+                </td>
+                <td class="text-xs text-gray-600">
+                  Acelga verde, kale rizado, tomates perita madurados en planta, zanahorias con chala, zapallo anco y
+                  rúcula salvaje. Certificado de transición agroecológica UTT, suelo nutrido con compost biológico.
+                </td>
+              </tr>
+              <tr>
+                <td class="font-bold text-emerald-900">
+                  Premezcla Universal Sin TACC "Vitalia Cocina Fácil" (1 kg)
+                </td>
+                <td class="text-sm text-gray-700">
+                  Permite elaborar panes, pizzas, pastas y masas dulces caseras sin gluten con idéntica textura y
+                  elasticidad que las tradicionales.
+                </td>
+                <td class="text-sm text-gray-700">
+                  • Elimina la frustración de masas quebradizas.<br>
+                  • Seguridad médica total para celíacos.<br>
+                  • Ahorro económico frente a premezclas industriales.
+                </td>
+                <td class="text-xs text-gray-600">
+                  Fécula de mandioca, almidón de maíz, harina de arroz refinada y goma xántica de alta pureza.
+                  Certificado analítico ELISA (&lt; 5 ppm), libre de trazas de soja y lácteos.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 8: COMPETENCIA Y PROVEEDORES
+         ========================================== -->
+    <article id="punto-8" class="section-card" data-category="catalogo">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">8</span>
+          <div>
+            <h2 class="section-title">Competencia y Proveedores</h2>
+            <p class="section-subtitle">Planillas comparativas de competidores y proveedores, ventajas competitivas,
+              difusión y canales comerciales.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+
+        <!-- 1. Planillas de Competidores -->
+        <h4 class="font-bold text-[#1b4332] text-base mb-2">1. Planillas de Potenciales Competidores</h4>
+        <div class="table-responsive mb-6">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Competidor & Tipo</th>
+                <th>Ubicación</th>
+                <th>Fortalezas</th>
+                <th>Debilidades</th>
+                <th>Estrategia de Vitalia</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-bold">Dietética La Estación (Tradicional)</td>
+                <td>Av. Luis Agote 850, Ranelagh</td>
+                <td>Público mayor cautivo, cercanía a la estación de tren.</td>
+                <td>Local oscuro, embolsados plásticos, nula presencia web, poca variedad celíaca.</td>
+                <td class="text-emerald-800 font-semibold">Local luminoso, venta en frascos retornables con descuento,
+                  asesoría nutricional, tienda online con delivery.</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Góndola Saludable Hipermercado</td>
+                <td>Av. Fangio y Calle 14, Berazategui</td>
+                <td>Financiación bancaria masiva, amplio estacionamiento.</td>
+                <td>Precios exorbitantes, alimentos ultraprocesados disfrazados de 'light', atención fría.</td>
+                <td class="text-emerald-800 font-semibold">Precios 25% más bajos en granel, alimentos de quinta
+                  cosechados en el día, calidez de barrio.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 2. Planillas de Proveedores -->
+        <h4 class="font-bold text-[#1b4332] text-base mb-2">2. Planillas de Proveedores Clave</h4>
+        <div class="table-responsive mb-6">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Proveedor</th>
+                <th>Rubro / Productos</th>
+                <th>Ubicación</th>
+                <th>Condiciones Comerciales</th>
+                <th>Garantía de Calidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-bold text-emerald-900">Cooperativa Hortícola UTT</td>
+                <td>Hortalizas, verduras de hoja, frutas de estación y legumbres secas</td>
+                <td>Cordón Hortícola La Plata / Berazategui</td>
+                <td>Entrega semanal martes y jueves, pago contado a 7 días con precios justos de origen.</td>
+                <td>Certificación de transición agroecológica, 0% agrotóxicos.</td>
+              </tr>
+              <tr>
+                <td class="font-bold text-emerald-900">Distribuidora "El Naranjo Natural"</td>
+                <td>Frutos secos nacionales e importados, harinas puras y semillas</td>
+                <td>Mercado Central de Bs. As. / Distribución Zona Sur</td>
+                <td>Bultos cerrados de 10/25 kg. Descuento 8% por pago contra entrega. Flete bonificado.</td>
+                <td>Lotes con análisis de humedad y certificación libre de gluten.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 3, 4, 5, 6: Preguntas estratégicas -->
+        <div class="grid-2">
+          <div class="info-card">
+            <h4>🌟 3. ¿Cuáles son nuestras ventajas competitivas?</h4>
+            <ul class="text-xs space-y-1.5 text-gray-700">
+              <li>• <strong>Sistema Circular de Frascos Retornables:</strong> Descuento real al cliente y cero plásticos
+                descartables.</li>
+              <li>• <strong>Asesoramiento Profesional en Mostrador:</strong> Atención brindada por una profesional en
+                nutrición.</li>
+              <li>• <strong>Trazabilidad Agroecológica Local:</strong> Productos cosechados a menos de 20 km de
+                distancia el mismo día.</li>
+              <li>• <strong>Productos Propios Innovadores:</strong> Línea exclusiva Vitalia que no se encuentra en
+                dietéticas tradicionales.</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h4>📢 4. ¿Cómo dar a conocer el producto o servicio?</h4>
+            <p class="text-xs text-gray-700 leading-relaxed">
+              Campaña de apertura <em>"Ranelagh Respira Salud"</em>: degustaciones gratuitas frente a la estación,
+              alianzas con centros de yoga y gimnasios locales, pauta publicitaria geolocalizada en Instagram/TikTok
+              para el radio Ranelagh-Berazategui, y talleres barriales de cocina consciente sin gluten.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h4>🏷️ 5. Gestión comercial: ¿Qué aportan las promociones?</h4>
+            <p class="text-xs text-gray-700 leading-relaxed">
+              Aportan rotación veloz de inventario para productos frescos, incentivan la prueba sin riesgo para nuevos
+              clientes (ej. <em>"15% OFF en tu primera compra"</em>) y promueven la conducta ecológica (ej.
+              <em>"Miércoles Verde: traé tu frasco y llevate 20% más de frutos secos"</em>).
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h4>🛒 6. Canales de venta físicos y virtuales</h4>
+            <ul class="text-xs space-y-1.5 text-gray-700">
+              <li>• <strong>Canal Físico:</strong> Almacén sensorial a la calle en Calle 361 N° 1245 (Ranelagh) con
+                dispensers transparentes y degustación diaria.</li>
+              <li>• <strong>Canales Virtuales:</strong> Tienda web con carrito de compras, catálogo ágil de WhatsApp
+                Business y delivery programado en zona sur.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 9: CREACIÓN DE UN PRODUCTO INNOVADOR
+         ========================================== -->
+    <article id="punto-9" class="section-card" data-category="catalogo">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">9</span>
+          <div>
+            <h2 class="section-title">Creación de un Producto Innovador para su Negocio</h2>
+            <p class="section-subtitle">Listado de 20 productos, filtro de 10, creación del producto de autor mezclando
+              más de 3 insumos, diseño de packaging y valor agregado.</p>
+          </div>
+        </div>
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800">Producto Exclusivo
+          Vitalia</span>
+      </div>
+      <div class="section-body">
+
+        <!-- 9.a y 9.b: Listados -->
+        <div class="grid-2 mb-6">
+          <div class="info-card">
+            <h4>📋 9.a) Listado de 20 Productos Variados</h4>
+            <ol class="text-xs text-gray-700 space-y-1 columns-2">
+              <li>1. Almendras peladas</li>
+              <li>2. Nueces Chandler</li>
+              <li>3. Castañas de Cajú</li>
+              <li>4. Semillas de chía</li>
+              <li>5. Semillas de lino</li>
+              <li>6. Cacao puro 100%</li>
+              <li>7. Harina de almendras</li>
+              <li>8. Harina de coco</li>
+              <li>9. Maca andina peruana</li>
+              <li>10. Quinoa real grano</li>
+              <li>11. Quinoa inflada crocante</li>
+              <li>12. Dátiles Medjool</li>
+              <li>13. Pasta de maní natural</li>
+              <li>14. Avena arrollada</li>
+              <li>15. Coco rallado sin azúcar</li>
+              <li>16. Espirulina pura</li>
+              <li>17. Polen apícola</li>
+              <li>18. Miel cruda de monte</li>
+              <li>19. Sal rosa del Himalaya</li>
+              <li>20. Semillas de girasol</li>
+            </ol>
+          </div>
+
+          <div class="info-card border-l-4 border-l-emerald-600">
+            <h4>🎯 9.b) Filtro y Selección de 10 Productos</h4>
+            <ul class="text-xs text-gray-700 space-y-1.5">
+              <li><strong>1. Castañas de Cajú:</strong> Base cremosa untuosa neutra y rica en magnesio.</li>
+              <li><strong>2. Cacao amargo puro:</strong> Aporte antioxidante y sabor chocolate noble.</li>
+              <li><strong>3. Maca andina peruana:</strong> Adaptógeno energizante hormonal natural.</li>
+              <li><strong>4. Quinoa inflada pop:</strong> Textura crujiente sin gluten ni aditivos.</li>
+              <li><strong>5. Dátiles Medjool:</strong> Dulzor caramelizado natural con fibra prebiótica.</li>
+              <li><strong>6. Semillas de chía:</strong> Gel natural y aporte de ácidos Omega 3.</li>
+              <li><strong>7. Almendras Nonpareil:</strong> Calcio vegetal y crocancia.</li>
+              <li><strong>8. Harina de coco:</strong> Fibra y aroma sutil tropical.</li>
+              <li><strong>9. Sal rosa del Himalaya:</strong> Realzador mineral de contrastes.</li>
+              <li><strong>10. Pasta de maní natural:</strong> Proteína concentrada de origen vegetal.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 9.c: El Producto Creado -->
+        <div class="p-4 bg-gradient-to-r from-emerald-900 to-[#1b4332] text-white rounded-xl mb-6 shadow-md">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
+            <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-300">Creación de Producto
+              Exclusivo (9.c)</span>
+            <span class="bg-amber-500 text-gray-900 px-3 py-0.5 rounded-full text-xs font-black">Patente Artesanal
+              Vitalia</span>
+          </div>
+          <h3 class="text-2xl font-black text-amber-300">VITALIA CREMA ANDINA CRUNCH</h3>
+          <p class="text-xs text-gray-200 mt-1 mb-3">Mezcla innovadora de 4 ingredientes seleccionados: <strong>Castañas
+              de Cajú activadas (60%) + Cacao puro 100% (18%) + Maca andina gelatinizada (7%) + Crispis de Quinoa
+              inflada crocante (10%) + Dátiles y sal rosa (5%)</strong>.</p>
+          <p class="text-sm text-gray-100 italic leading-relaxed">
+            «Una crema untable funcional, nutritiva y crujiente diseñada para sustituir a las cremas de avellanas
+            industriales cargadas de azúcar y aceite de palma. Combina la suntuosidad de las castañas, el poder
+            antioxidante del chocolate real, el vigor adaptogénico de la maca y un estallido crocante de quinoa pop.»
+          </p>
+        </div>
+
+        <!-- 9.d: Diseño Visual y Packaging -->
+        <div class="grid-2 mb-6">
+          <div class="info-card">
+            <h4>🎨 9.d) Dibujo y Diseño del Packaging</h4>
+            <div class="p-6 bg-[#f9fdfa] border-2 border-dashed border-emerald-300 rounded-xl text-center">
+              <svg viewBox="0 0 160 200" class="w-36 h-44 mx-auto mb-3">
+                <!-- Frasco de Vidrio Hexagonal -->
+                <polygon points="40,30 120,30 140,70 140,170 120,190 40,190 20,170 20,70" fill="#f0fdf4"
+                  stroke="#2d6a4f" stroke-width="3" />
+                <!-- Contenido Crema de Cacao -->
+                <polygon points="25,75 135,75 135,165 118,185 42,185 25,165" fill="#582f0e" />
+                <!-- Chispas de Quinoa Pop -->
+                <circle cx="50" cy="100" r="3" fill="#fde047" />
+                <circle cx="80" cy="120" r="4" fill="#fde047" />
+                <circle cx="110" cy="110" r="3" fill="#fde047" />
+                <circle cx="65" cy="150" r="3.5" fill="#fde047" />
+                <circle cx="95" cy="160" r="3" fill="#fde047" />
+                <!-- Etiqueta de Papel Kraft -->
+                <rect x="35" y="90" width="90" height="60" rx="4" fill="#faedcd" stroke="#d4a373" stroke-width="1.5" />
+                <text x="80" y="108" font-size="8" font-weight="bold" fill="#1b4332" text-anchor="middle">VITALIA</text>
+                <text x="80" y="120" font-size="6.5" font-weight="bold" fill="#78350f" text-anchor="middle">CREMA
+                  ANDINA</text>
+                <text x="80" y="130" font-size="5" fill="#92400e" text-anchor="middle">CRUNCH • CAJÚ & MACA</text>
+                <text x="80" y="142" font-size="5.5" font-weight="bold" fill="#1b4332" text-anchor="middle">300g • SIN
+                  TACC</text>
+                <!-- Tapa Dorada Twist-Off -->
+                <rect x="35" y="15" width="90" height="15" rx="3" fill="#eab308" stroke="#ca8a04" stroke-width="2" />
+                <!-- Precinto Kraft -->
+                <rect x="75" y="10" width="10" height="35" fill="#d4a373" />
+              </svg>
+              <p class="text-xs font-bold text-emerald-900">Prototipo Visual: Frasco Hexagonal de Vidrio de 300g</p>
+              <p class="text-[11px] text-gray-500">Tapa metálica dorada hermética libre de BPA y precinto ecológico
+                inviolable.</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>🔍 9.e) Características Técnicas</h4>
+            <ul class="text-xs space-y-2 text-gray-700">
+              <li><strong>Beneficios:</strong> Energía duradera, estimulación cognitiva por flavonoides del cacao,
+                balance hormonal por maca andina, sin gluten y 100% vegetal.</li>
+              <li><strong>Textura y Sabor:</strong> Untuosidad aterciopelada similar a una mousse con textura crunch
+                crocante. Sabor a cacao amargo profundo y notas acarameladas.</li>
+              <li><strong>Modelos y Presentaciones:</strong> Frasco familiar de 300g y Frasco Pocket de 120g para
+                colaciones deportivas.</li>
+              <li><strong>Precio Sugerido:</strong> <strong>$6.800 ARS (300g)</strong> / <strong>$3.200 ARS
+                  (120g)</strong>.</li>
+              <li><strong>Público Objetivo:</strong> Celíacos, veganos, deportistas, madres de Ranelagh que buscan
+                colaciones escolares saludables.</li>
+              <li><strong>Vida Útil:</strong> 9 meses a temperatura ambiente en lugar seco (no precisa refrigeración).
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 9.f: Valor Agregado o Diferenciación -->
+        <div class="highlight-box">
+          <h4 class="font-bold text-emerald-900 text-sm">💡 9.f) Valor Agregado y Diferenciación</h4>
+          <p class="text-xs text-gray-800 mt-1 leading-relaxed">
+            Mientras las cremas de untar masivas contienen hasta un 55% de azúcar blanca refinada, aceites hidrogenados
+            dañinos para el corazón y saborizantes artificiales, la <strong>Crema Andina Crunch de Vitalia</strong>
+            utiliza frutos secos nobles activados, adaptógenos milenarios de la cordillera andina y textura crocante de
+            quinoa pop, sin una sola pizca de conservantes ni alérgenos lácteos.
+          </p>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- Separador Visual de Categoría -->
+    <div class="category-divider anim-fade-up">
+      <div class="divider-line"></div>
+      <div class="divider-label">
+        <div class="divider-dot"></div>
+        <span>Finanzas & Costos</span>
+        <div class="divider-dot"></div>
+      </div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ==========================================
+         PUNTO 10: COSTOS FIJOS DEL NEGOCIO (CALCULADORA)
+         ========================================== -->
+    <article id="punto-10" class="section-card" data-category="finanzas">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">10</span>
+          <div>
+            <h2 class="section-title">Costos Fijos del Negocio & Calculadora Reactiva</h2>
+            <p class="section-subtitle">Planilla mensual editable en pesos argentinos (ARS) con cálculo automático de
+              costo diario y punto de equilibrio comercial.</p>
+          </div>
+        </div>
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Valores Actualizados
+          ARS</span>
+      </div>
+      <div class="section-body">
+
+        <!-- Métricas Dinámicas -->
+        <div class="grid-3 mb-6">
+          <div class="calc-summary-card">
+            <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider">Costo Fijo Mensual Total</span>
+            <div id="totalFixedCostDisplay" class="number text-[#1b4332]">$ 900.400</div>
+            <span class="text-[11px] text-emerald-700">Gastos operativos indispensables</span>
+          </div>
+          <div class="calc-summary-card">
+            <span class="text-xs font-bold text-amber-800 uppercase tracking-wider">Costo Operativo Diario</span>
+            <div id="dailyFixedCostDisplay" class="number text-[#d97706]">$ 30.013</div>
+            <span class="text-[11px] text-amber-700">Promedio sobre base de 30 días</span>
+          </div>
+          <div class="calc-summary-card">
+            <span class="text-xs font-bold text-blue-800 uppercase tracking-wider">Punto de Equilibrio en Ventas</span>
+            <div id="breakevenDisplay" class="number text-[#1e3a8a]">$ 2.251.000</div>
+            <span class="text-[11px] text-blue-700">Con margen comercial estimado del 40%</span>
+          </div>
+        </div>
+
+        <!-- Tabla Editable -->
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Concepto del Gasto</th>
+                <th style="width: 220px;" class="text-right">Valor Mensual ($ ARS)</th>
+                <th style="width: 60px;" class="text-center">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="fixedCostsTableBody">
+              <!-- Renderizado dinámico desde calculator.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-3 flex items-center justify-between flex-wrap gap-2">
+          <button id="btnAddFixedCost" class="btn btn-secondary text-xs">
+            ➕ Agregar Otro Concepto de Gasto
+          </button>
+          <span class="text-xs text-gray-500 italic">Podés editar cualquier valor numérico y las métricas se
+            recalcularán al instante.</span>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 11: PLANILLA DE INVERSIONES INICIALES
+         ========================================== -->
+    <article id="punto-11" class="section-card" data-category="finanzas">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">11</span>
+          <div>
+            <h2 class="section-title">Planilla de Inversiones Iniciales</h2>
+            <p class="section-subtitle">Acondicionamiento de local, mobiliario, maquinaria, stock inicial de materias
+              primas y habilitaciones comerciales.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+
+        <div
+          class="mb-4 p-4 bg-[#f4fbf7] border border-[#d0e5dd] rounded-xl flex items-center justify-between flex-wrap gap-3">
+          <div>
+            <span class="text-xs font-bold text-gray-500 uppercase">Total de Inversión Inicial Requerida:</span>
+            <div id="totalInvestmentDisplay" class="text-2xl font-black text-[#1b4332]">$ 10.470.000</div>
+          </div>
+          <button id="btnAddInvestment" class="btn btn-primary text-xs">
+            ➕ Agregar Concepto de Inversión
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Nombre de la Inversión / Activo</th>
+                <th style="width: 180px;">Categoría</th>
+                <th style="width: 220px;" class="text-right">Monto Estimado ($ ARS)</th>
+                <th style="width: 60px;" class="text-center">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="investmentsTableBody">
+              <!-- Renderizado dinámico desde calculator.js -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- Separador Visual de Categoría -->
+    <div class="category-divider anim-fade-up">
+      <div class="divider-line"></div>
+      <div class="divider-label">
+        <div class="divider-dot"></div>
+        <span>Clientes & Análisis FODA</span>
+        <div class="divider-dot"></div>
+      </div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ==========================================
+         PUNTO 12: ESTUDIO DE CLIENTES (ENCUESTA Y GRÁFICOS)
+         ========================================== -->
+    <article id="punto-12" class="section-card" data-category="clientes-foda">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">12</span>
+          <div>
+            <h2 class="section-title">Estudio Descriptivo y Transversal de Clientes</h2>
+            <p class="section-subtitle">Encuesta de 10 preguntas, base de datos de 15 entrevistados segmentados por 3
+              rangos etarios, gráficos interactivos Chart.js y conclusiones analíticas.</p>
+          </div>
+        </div>
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">15 Entrevistados •
+          Ranelagh</span>
+      </div>
+      <div class="section-body">
+
+        <!-- Selector de Preguntas y Filtro de Grupo -->
+        <div class="grid-3 mb-4 bg-gray-50 p-3 rounded-xl border border-gray-200">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Seleccionar Pregunta a Graficar (1 al 10):</label>
+            <select id="surveyQuestionSelect"
+              class="w-full text-xs p-2 rounded border border-gray-300 font-semibold bg-white text-gray-800">
+              <!-- Llenado dinámico en charts.js -->
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Filtrar por Grupo Etario:</label>
+            <select id="surveyGroupSelect"
+              class="w-full text-xs p-2 rounded border border-gray-300 font-semibold bg-white text-gray-800">
+              <option value="ALL">Todos los Grupos (15 entrevistados)</option>
+              <option value="G1">Grupo 1: 18 a 25 años (5 entrevistados)</option>
+              <option value="G2">Grupo 2: 25 a 35 años (5 entrevistados)</option>
+              <option value="G3">Grupo 3: 35 a 50 años (5 entrevistados)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Tipo de Gráfico:</label>
+            <select id="surveyChartTypeSelect"
+              class="w-full text-xs p-2 rounded border border-gray-300 font-semibold bg-white text-gray-800">
+              <option value="doughnut">Dona Circular (Doughnut)</option>
+              <option value="pie">Torta Circular (Pie)</option>
+              <option value="bar">Gráfico de Barras (Bar)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Visualizador del Gráfico -->
+        <div class="grid-2 mb-6 items-center">
+          <div class="h-64 relative bg-white p-2 rounded-xl border border-gray-200 shadow-sm">
+            <canvas id="surveyChartCanvas"></canvas>
+          </div>
+          <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+            <h4 id="currentQuestionTitle" class="font-bold text-emerald-950 text-sm mb-1">Cargando pregunta...</h4>
+            <p id="currentQuestionSample" class="text-xs text-emerald-700 font-semibold mb-3">Muestra: 15 entrevistados
+            </p>
+            <div class="text-xs text-gray-700 leading-relaxed space-y-1.5">
+              <p>• Los resultados muestran una inclinación contundente de los residentes de Ranelagh hacia productos
+                naturales puros y compra a granel en frascos retornables.</p>
+              <p>• La segmentación por edad evidencia que el Grupo 1 (18-25) prioriza snacks funcionales rápidos,
+                mientras que el Grupo 2 (25-35) y Grupo 3 (35-50) buscan salud preventiva para el hogar y harinas libres
+                de gluten.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla Completa de los 15 Entrevistados (12.b) -->
+        <h4 class="font-bold text-[#1b4332] text-sm mb-2">📋 12.b) Base de Datos Tabulada de los 15 Entrevistados
+          (Ranelagh / Berazategui)</h4>
+        <div class="table-responsive mb-6 text-xs">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre Ficticio</th>
+                <th>Segmento</th>
+                <th>Sexo</th>
+                <th>Localidad</th>
+                <th class="text-center" title="Pregunta 1">P1</th>
+                <th class="text-center" title="Pregunta 2">P2</th>
+                <th class="text-center" title="Pregunta 3">P3</th>
+                <th class="text-center" title="Pregunta 4">P4</th>
+                <th class="text-center" title="Pregunta 5">P5</th>
+                <th class="text-center" title="Pregunta 6">P6</th>
+                <th class="text-center" title="Pregunta 7">P7</th>
+                <th class="text-center" title="Pregunta 8">P8</th>
+                <th class="text-center" title="Pregunta 9">P9</th>
+                <th class="text-center" title="Pregunta 10">P10</th>
+              </tr>
+            </thead>
+            <tbody id="surveyTableBody">
+              <!-- Llenado dinámico desde charts.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 12.d Conclusiones Finales -->
+        <div class="info-card border-l-4 border-l-emerald-600 bg-white">
+          <h4 class="font-bold text-emerald-900 text-sm mb-2">📌 12.d) Conclusiones Finales del Estudio de Mercado</h4>
+          <ul class="text-xs space-y-2 text-gray-700">
+            <li><strong>1. Fuerte demanda insatisfecha en Ranelagh:</strong> El 80% de los encuestados debe viajar a
+              otras localidades para conseguir alimentos saludables variados, lo que valida plenamente la apertura del
+              local físico.</li>
+            <li><strong>2. Adopción del sistema de frascos retornables:</strong> El 73% de la muestra afirma que usaría
+              activamente el sistema de frascos de vidrio con bonificación, alineándose con el perfil ecológico de la
+              zona.</li>
+            <li><strong>3. Capacidad de compra validada:</strong> El 86% gasta más de $20.000 ARS al mes en el rubro, y
+              más del 50% supera los $40.000 ARS, asegurando un ticket promedio saludable.</li>
+            <li><strong>4. Entusiasmo por el producto innovador:</strong> El 100% mostró interés de compra en la Crema
+              Andina Crunch (60% compra directa y 40% tras degustación).</li>
+            <li><strong>5. Canal prioritario:</strong> WhatsApp es el canal preferido para pedidos y consultas (73%),
+              seguido por la tienda online.</li>
+          </ul>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 13: COMPETENCIAS LABORALES (5 EXPLICADAS)
+         ========================================== -->
+    <article id="punto-13" class="section-card" data-category="clientes-foda">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">13</span>
+          <div>
+            <h2 class="section-title">Competencias Laborales Clave</h2>
+            <p class="section-subtitle">Cinco competencias críticas desarrolladas por el equipo de Vitalia para
+              garantizar el éxito operativo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="space-y-3">
+          <div class="info-card border-l-4 border-l-emerald-600">
+            <h4 class="text-emerald-900 text-sm">1. Asesoramiento Nutricional y Conocimiento Técnico de Alimentos
+              Funcionales</h4>
+            <p class="text-xs text-gray-700 leading-relaxed mt-1">
+              Capacidad de comprender a fondo las propiedades bioactivas, índice glucémico, perfiles de aminoácidos y
+              beneficios de cada producto para guiar con solvencia técnica al cliente, diferenciándonos radicalmente de
+              un simple despachador de mercadería.
+            </p>
+          </div>
+          <div class="info-card border-l-4 border-l-emerald-600">
+            <h4 class="text-emerald-900 text-sm">2. Manipulación Higiénica de Alimentos y Protocolos Estrictos Libres de
+              Gluten (Sin TACC)</h4>
+            <p class="text-xs text-gray-700 leading-relaxed mt-1">
+              Conocimiento riguroso de las normas de bromatología y prevención absoluta de la contaminación cruzada
+              ambiental y de contacto, asegurando que los productos destinados a personas celíacas mantengan su pureza e
+              inocuidad total.
+            </p>
+          </div>
+          <div class="info-card border-l-4 border-l-emerald-600">
+            <h4 class="text-emerald-900 text-sm">3. Gestión Eficiente de Inventario a Granel y Control de Rotación
+              (Método PEPS / FIFO)</h4>
+            <p class="text-xs text-gray-700 leading-relaxed mt-1">
+              Habilidad para controlar fechas de ingreso, condiciones de humedad, temperatura y aireación de frutos
+              secos, semillas y harinas para evitar rancidez, mermas económicas y asegurar que el cliente siempre reciba
+              productos de máxima frescura.
+            </p>
+          </div>
+          <div class="info-card border-l-4 border-l-emerald-600">
+            <h4 class="text-emerald-900 text-sm">4. Comunicación Empática, Escucha Activa y Hospitalidad en la Atención
+              al Cliente</h4>
+            <p class="text-xs text-gray-700 leading-relaxed mt-1">
+              Destreza para recibir a cada vecino con calidez, detectar sus preocupaciones de salud o limitaciones en la
+              cocina, y construir un vínculo de confianza comunitaria duradera que transforma la compra en una
+              experiencia reconfortante.
+            </p>
+          </div>
+          <div class="info-card border-l-4 border-l-emerald-600">
+            <h4 class="text-emerald-900 text-sm">5. Marketing de Contenidos Digitales y Dinamización de Comunidades
+              Locales</h4>
+            <p class="text-xs text-gray-700 leading-relaxed mt-1">
+              Capacidad para crear videos dinámicos, recetas sencillas, responder con agilidad por WhatsApp y
+              administrar pauta geolocalizada, logrando que el almacén sea una presencia cotidiana positiva en las redes
+              de los vecinos de Ranelagh.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 14: MATRIZ FODA Y CRUCES ESTRATÉGICOS
+         ========================================== -->
+    <article id="punto-14" class="section-card" data-category="clientes-foda">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">14</span>
+          <div>
+            <h2 class="section-title">Matriz FODA Vinculada al Negocio</h2>
+            <p class="section-subtitle">Análisis situacional de factores internos y externos, con matriz de cruce
+              estratégico (Estrategias FO, DO, FA, DA).</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+
+        <!-- Cuadrante FODA -->
+        <div class="grid-2 mb-6">
+          <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
+            <h4 class="font-bold text-emerald-900 text-sm mb-2 flex items-center gap-2">💪 FORTALEZAS (Factores
+              Internos)</h4>
+            <ul class="text-xs text-gray-700 space-y-1">
+              <li>• Ubicación comercial privilegiada en el corazón de Ranelagh.</li>
+              <li>• Alianza directa con cooperativas hortícolas agroecológicas (UTT).</li>
+              <li>• Asesoramiento con licenciada en nutrición en mostrador.</li>
+              <li>• Sistema innovador de frascos de vidrio retornables con economía circular.</li>
+              <li>• Productos propios de autor de alto margen (Crema Andina Crunch).</li>
+            </ul>
+          </div>
+
+          <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl">
+            <h4 class="font-bold text-blue-900 text-sm mb-2 flex items-center gap-2">🚀 OPORTUNIDADES (Factores
+              Externos)</h4>
+            <ul class="text-xs text-gray-700 space-y-1">
+              <li>• Crecimiento del 22% anual en el consumo de comida saludable en Argentina.</li>
+              <li>• Escasa competencia moderna en Ranelagh: dietéticas anticuadas.</li>
+              <li>• Población de nivel socioeconómico medio-alto dispuesto a pagar por salud.</li>
+              <li>• Demanda creciente de reducción de plásticos descartables.</li>
+              <li>• Alianzas con clubes de golf, gimnasios y centros de yoga zonales.</li>
+            </ul>
+          </div>
+
+          <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl">
+            <h4 class="font-bold text-amber-900 text-sm mb-2 flex items-center gap-2">⚠️ DEBILIDADES (Factores Internos)
+            </h4>
+            <ul class="text-xs text-gray-700 space-y-1">
+              <li>• Marca nueva que debe construir reputación desde cero.</li>
+              <li>• Capacidad de almacenamiento acotada en el depósito del local.</li>
+              <li>• Dependencia estacional para ciertos productos frescos de quinta.</li>
+              <li>• Presupuesto acotado que requiere optimización de liquidez.</li>
+            </ul>
+          </div>
+
+          <div class="p-4 bg-rose-50 border border-rose-200 rounded-xl">
+            <h4 class="font-bold text-rose-900 text-sm mb-2 flex items-center gap-2">⚡ AMENAZAS (Factores Externos)</h4>
+            <ul class="text-xs text-gray-700 space-y-1">
+              <li>• Contexto inflacionario y variabilidad en costos de reposición.</li>
+              <li>• Potencial desembarco de cadenas franquiciadas en avenidas principales.</li>
+              <li>• Aumento de tarifas eléctricas que impactan en la refrigeración.</li>
+              <li>• Faltantes eventuales en frutos secos importados (cajú, almendras).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Estrategias Cruzadas -->
+        <h4 class="font-bold text-[#1b4332] text-sm mb-2">🎯 Matriz de Estrategias Cruzadas</h4>
+        <div class="grid-2">
+          <div class="info-card">
+            <span class="text-xs font-bold text-emerald-800">Estrategias FO (Fortalezas + Oportunidades):</span>
+            <p class="text-xs text-gray-700 mt-1">Aprovechar el asesoramiento nutricional y la ubicación en Ranelagh
+              para fidelizar al público deportivo mediante talleres de cocina limpia y convenios de descuento.</p>
+          </div>
+          <div class="info-card">
+            <span class="text-xs font-bold text-blue-800">Estrategias DO (Debilidades + Oportunidades):</span>
+            <p class="text-xs text-gray-700 mt-1">Superar la condición de marca nueva capitalizando el descontento con
+              dietéticas tradicionales a través de degustaciones masivas en la estación y boca a boca en WhatsApp.</p>
+          </div>
+          <div class="info-card">
+            <span class="text-xs font-bold text-amber-800">Estrategias FA (Fortalezas + Amenazas):</span>
+            <p class="text-xs text-gray-700 mt-1">Utilizar la compra directa a cooperativas de quintas locales y el
+              granel retornable para mantener precios más competitivos y amortiguar los saltos inflacionarios.</p>
+          </div>
+          <div class="info-card">
+            <span class="text-xs font-bold text-rose-800">Estrategias DA (Debilidades + Amenazas):</span>
+            <p class="text-xs text-gray-700 mt-1">Implementar un software de stock en tiempo real con órdenes de compra
+              just-in-time para evitar sobrestock en el local y prevenir desabastecimientos.</p>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 15: BUYER PERSONA
+         ========================================== -->
+    <article id="punto-15" class="section-card" data-category="clientes-foda">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">15</span>
+          <div>
+            <h2 class="section-title">Buyer Persona: Perfil del Cliente Ideal</h2>
+            <p class="section-subtitle">Arquetipo detallado con datos demográficos, estilo de vida, motivaciones
+              profundas y frustraciones cotidianas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="buyer-persona-card">
+          <div class="buyer-persona-header">
+            <div class="buyer-avatar">👩‍💼</div>
+            <div>
+              <h3 class="text-2xl font-extrabold text-white">Lucía Beltrán (32 años)</h3>
+              <p class="text-emerald-200 text-sm font-semibold">«La Madre Consciente & Profesional Proactiva»</p>
+              <p class="text-xs text-gray-200 mt-1">Arquitecta independiente • Vive en Ranelagh con su esposo y su hijo
+                Benjamín (3 años).</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="p-3 bg-amber-50 border-l-4 border-l-amber-500 rounded text-xs text-amber-900 italic mb-4">
+              «No quiero alimentar a mi hijo con ultraprocesados llenos de azúcar, pero con el trabajo y la casa
+              necesito opciones prácticas, limpias y cerca de casa.»
+            </div>
+
+            <div class="grid-3 text-xs">
+              <div>
+                <h5 class="font-bold text-emerald-900 mb-1">🎯 Metas y Objetivos:</h5>
+                <ul class="space-y-1 text-gray-700">
+                  <li>• Cocinar nutritivo y variado sin pasar horas en la cocina.</li>
+                  <li>• Reducir drásticamente los residuos plásticos de su casa.</li>
+                  <li>• Proteger a su hijo que tiene intolerancia leve al gluten.</li>
+                </ul>
+              </div>
+              <div>
+                <h5 class="font-bold text-rose-900 mb-1">⚡ Frustraciones y Dolores:</h5>
+                <ul class="space-y-1 text-gray-700">
+                  <li>• Perder tiempo viajando a Quilmes o Capital para conseguir harinas puras.</li>
+                  <li>• Desconfiar de productos industriales con jarabe de maíz oculto.</li>
+                  <li>• La mala atención de las dietéticas antiguas que no saben explicar nada.</li>
+                </ul>
+              </div>
+              <div>
+                <h5 class="font-bold text-blue-900 mb-1">💚 Cómo Vitalia le Resuelve la Vida:</h5>
+                <p class="text-gray-700 leading-relaxed">
+                  Le brinda un local estético y cercano donde rellenar frascos de vidrio, recibir asesoramiento de la
+                  nutricionista para meriendas escolares y pedir por WhatsApp con delivery en el día cuando está tapada
+                  de trabajo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Separador Visual de Categoría -->
+    <div class="category-divider anim-fade-up">
+      <div class="divider-line"></div>
+      <div class="divider-label">
+        <div class="divider-dot"></div>
+        <span>Branding & Marketing Digital</span>
+        <div class="divider-dot"></div>
+      </div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ==========================================
+         PUNTO 16: MARCA DE MI NEGOCIO
+         ========================================== -->
+    <article id="punto-16" class="section-card" data-category="marketing">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">16</span>
+          <div>
+            <h2 class="section-title">Marca de Mi Negocio: Identidad Visual Completa</h2>
+            <p class="section-subtitle">Nombre, eslogan, diseño y justificación de los 4 tipos de marca (Isotipo,
+              Logotipo, Imagotipo, Isologo), packaging y medios creativos.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+
+        <!-- 1. Nombre y Eslogan -->
+        <div class="text-center p-6 bg-gradient-to-r from-emerald-800 to-[#1b4332] text-white rounded-xl mb-6 shadow">
+          <p class="text-xs uppercase tracking-widest text-emerald-300 font-bold mb-1">Nombre Oficial y Eslogan</p>
+          <h3 class="text-3xl font-black tracking-wide text-white">VITALIA • ALMACÉN SALUDABLE</h3>
+          <p class="text-lg italic text-amber-300 mt-2 font-medium">«Nutrí tu vida desde la raíz.»</p>
+        </div>
+
+        <!-- 2. Diseños de las 4 Variantes de Marca -->
+        <h4 class="font-bold text-[#1b4332] text-base mb-3">2. Exploración y Diseño Visual de los 4 Tipos de Marca</h4>
+        <div class="grid-4 mb-4">
+          <button
+            class="btn-brand-variant p-3 rounded-lg border border-gray-300 bg-white hover:bg-emerald-50 text-xs font-bold transition-all text-center"
+            data-variant="0">
+            🌱 1. Isotipo (Símbolo puro)
+          </button>
+          <button
+            class="btn-brand-variant p-3 rounded-lg border border-gray-300 bg-white hover:bg-emerald-50 text-xs font-bold transition-all text-center"
+            data-variant="1">
+            🔤 2. Logotipo (Tipografía pura)
+          </button>
+          <button
+            class="btn-brand-variant p-3 rounded-lg border-2 border-emerald-600 bg-emerald-700 text-white text-xs font-bold transition-all text-center shadow-md"
+            data-variant="2">
+            ⭐ 3. Imagotipo (ELEGIDO)
+          </button>
+          <button
+            class="btn-brand-variant p-3 rounded-lg border border-gray-300 bg-white hover:bg-emerald-50 text-xs font-bold transition-all text-center"
+            data-variant="3">
+            ⭕ 4. Isologo (Sello unificado)
+          </button>
+        </div>
+
+        <!-- Visor de Marca Seleccionada -->
+        <div
+          class="p-6 bg-white border border-gray-200 rounded-xl mb-6 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+          <div id="brandVariantPreviewContainer"
+            class="w-52 h-40 flex items-center justify-center p-4 bg-[#f4fbf7] rounded-lg border border-[#d0e5dd]">
+            <!-- Símbolo inicial Imagotipo Oficial -->
+            <img src="imagotipo.jpg" alt="Vitalia Imagotipo Oficial" class="max-h-24 w-auto object-contain"
+              style="mix-blend-mode: multiply;">
+          </div>
+          <div id="brandVariantInfoContainer" class="flex-1">
+            <h4 class="font-bold text-emerald-950 text-lg mb-1">Imagotipo (Marca Oficial Elegida)</h4>
+            <p class="text-xs text-emerald-700 font-semibold mb-2">Unión armónica de símbolo (isotipo) y texto
+              (logotipo) que pueden convivir juntos o funcionar por separado.</p>
+            <p class="text-sm text-gray-700">El brote botánico estilizado acompaña a la tipografía oficial 'VITALIA
+              ALMACÉN SALUDABLE'. Garantiza máxima pregnancia visual en frascos, bolsas y marquesina.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- Justificación de Marca -->
+      <div class="highlight-box mb-6">
+        <h4 class="font-bold text-emerald-900 text-sm">🏆 Justificación de Por Qué el Imagotipo es el Más Adecuado</h4>
+        <p class="text-xs text-gray-800 mt-1 leading-relaxed">
+          Elegimos el <strong>IMAGOTIPO</strong> debido a su extraordinaria versatilidad de aplicación en el comercio
+          minorista: en las tapas pequeñas de los frascos de vidrio y en sellos de lacre ecológico podemos usar el
+          <strong>isotipo del brote</strong> de forma aislada sin perder identidad; mientras que en la marquesina
+          exterior del local de Ranelagh y en los perfiles digitales, la convivencia de símbolo y nombre asegura una
+          legibilidad impecable y un recuerdo de marca inmediato.
+        </p>
+      </div>
+
+      <!-- 3, 4, 5: Packaging, Posicionamiento y Medios -->
+      <div class="grid-3">
+        <div class="info-card">
+          <h4>📦 3. Packaging Sustentable</h4>
+          <p class="text-xs text-gray-700 leading-relaxed">
+            Frascos de vidrio hexagonales con precinto de seguridad de papel kraft, bolsas de papel madera biodegradable
+            para granel impresas con tintas vegetales y bolsas tote bag de lienzo reutilizables con descuento por
+            retorno.
+          </p>
+        </div>
+        <div class="info-card">
+          <h4>🎯 4. Posicionamiento</h4>
+          <p class="text-xs text-gray-700 leading-relaxed">
+            Posicionarse en la mente del consumidor como <em>«El almacén saludable de cercanía más transparente,
+              confiable y estético de zona sur»</em>, donde el cliente sabe exactamente qué come y quién lo cosechó.
+          </p>
+        </div>
+        <div class="info-card">
+          <h4>🎬 5. Medios Creativos Elegidos</h4>
+          <p class="text-xs text-gray-700 leading-relaxed">
+            Video reels dinámicos de recetas de 30 segundos, micro-podcasts semanales de nutrición en historias de
+            Instagram, e infografías descargables con tablas de reemplazo de azúcar y harinas para cocinar en casa.
+          </p>
+        </div>
+      </div>
+
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 17: MARKETING DIGITAL (4 PARTES)
+         ========================================== -->
+    <article id="punto-17" class="section-card" data-category="marketing">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">17</span>
+          <div>
+            <h2 class="section-title">Marketing Digital (Estrategia en 4 Partes)</h2>
+            <p class="section-subtitle">Identidad de marca, redes sociales, generación de piezas de contenido reales
+              (promo, guiones TikTok/Reel, encuesta, meme, post) y cronograma estratégico.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+
+        <!-- Parte 1: Identidad -->
+        <div class="mb-6">
+          <h4 class="font-bold text-[#1b4332] text-sm mb-2">Parte 1 – Identidad de Marca</h4>
+          <div class="grid-2">
+            <div class="info-card">
+              <span class="text-xs font-bold text-gray-500">Descripción de la marca (máx. 50 palabras):</span>
+              <p class="text-xs text-gray-800 font-medium mt-1 p-2.5 bg-emerald-50 rounded border border-emerald-200">
+                «Vitalia es un almacén saludable en Ranelagh que comercializa alimentos agroecológicos, sin TACC y a
+                granel para familias conscientes y deportistas. Nos hace especiales el asesoramiento nutricional en
+                mostrador, el sistema de frascos retornables cero residuos y productos propios de autor como nuestra
+                Crema Andina Crunch.»
+              </p>
+              <span class="text-[11px] text-emerald-800 font-bold block mt-1">Conteo exacto: 47 palabras.</span>
+            </div>
+            <div class="info-card">
+              <span class="text-xs font-bold text-gray-500">Paleta Cromática de Identidad:</span>
+              <div class="flex items-center gap-2 mt-2">
+                <div
+                  class="w-10 h-10 rounded-lg bg-[#1b4332] flex items-center justify-center text-[10px] text-white font-bold"
+                  title="#1B4332">Bosque</div>
+                <div
+                  class="w-10 h-10 rounded-lg bg-[#52b788] flex items-center justify-center text-[10px] text-white font-bold"
+                  title="#52B788">Salvia</div>
+                <div
+                  class="w-10 h-10 rounded-lg bg-[#d97706] flex items-center justify-center text-[10px] text-white font-bold"
+                  title="#D97706">Miel</div>
+                <div
+                  class="w-10 h-10 rounded-lg bg-[#c86d51] flex items-center justify-center text-[10px] text-white font-bold"
+                  title="#C86D51">Cacao</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parte 2: Redes Sociales -->
+        <div class="mb-6">
+          <h4 class="font-bold text-[#1b4332] text-sm mb-2">Parte 2 – Redes Sociales Seleccionadas</h4>
+          <div class="grid-2">
+            <div class="info-card">
+              <h5 class="font-bold text-emerald-900 text-xs">📸 Instagram (@VitaliaRanelagh)</h5>
+              <p class="text-xs text-gray-700 mt-1"><strong>Estilo:</strong> Cálido, estético, empático y educativo.
+                Recetas en video, presentación de productos y canal directo de asesoramiento vía DM.</p>
+            </div>
+            <div class="info-card">
+              <h5 class="font-bold text-gray-900 text-xs">🎵 TikTok (@VitaliaRanelagh)</h5>
+              <p class="text-xs text-gray-700 mt-1"><strong>Estilo:</strong> Dinámico, fresco, con toques de humor y
+                desmitificación de mitos nutricionales (ej. '¿Realmente el azúcar mascabo es sana?').</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parte 4: Estrategia y Horarios -->
+        <div>
+          <h4 class="font-bold text-[#1b4332] text-sm mb-2">Parte 4 – Estrategia y Grilla Horaria Justificada</h4>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Contenido</th>
+                  <th>Red Social</th>
+                  <th>Horario Óptimo</th>
+                  <th>Justificación del Horario</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold">Reels y videos de recetas / producto</td>
+                  <td>Instagram & TikTok</td>
+                  <td class="font-bold text-emerald-900">19:30 a 20:30 hs</td>
+                  <td class="text-xs text-gray-700">Horario de regreso a casa en tren o descanso post-laboral donde
+                    planifican la cena o compras del día siguiente.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold">Stories con encuestas y recordatorios</td>
+                  <td>Instagram Stories</td>
+                  <td class="font-bold text-emerald-900">12:15 a 13:30 hs</td>
+                  <td class="text-xs text-gray-700">Pausa del almuerzo donde revisan el celular y se coordinan pedidos
+                    de delivery para la tarde.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold">Memes y posteos distendidos</td>
+                  <td>Instagram & Facebook</td>
+                  <td class="font-bold text-emerald-900">Sábados 10:30 hs</td>
+                  <td class="text-xs text-gray-700">Momento previo a las compras del fin de semana y paseos familiares
+                    por la zona verde de Ranelagh.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- Separador Visual de Categoría -->
+    <div class="category-divider anim-fade-up">
+      <div class="divider-line"></div>
+      <div class="divider-label">
+        <div class="divider-dot"></div>
+        <span>Canvas, AFIP & Gestión de Proyecto</span>
+        <div class="divider-dot"></div>
+      </div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ==========================================
+         PUNTO 18: MODELO DE NEGOCIO CANVAS
+         ========================================== -->
+    <article id="punto-18" class="section-card" data-category="gestion">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">18</span>
+          <div>
+            <h2 class="section-title">Modelo de Negocio Canvas</h2>
+            <p class="section-subtitle">Lienzo interactivo completo de 9 bloques estructurado según la metodología de
+              Osterwalder.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="canvas-grid">
+          <!-- 1. Socios Clave -->
+          <div class="canvas-cell border-l-4 border-l-emerald-700">
+            <h4>🤝 Socios Clave</h4>
+            <ul>
+              <li>Cooperativas hortícolas UTT La Plata/Berazategui.</li>
+              <li>Distribuidora mayorista El Naranjo.</li>
+              <li>Productores apícolas y mermeladas sin azúcar.</li>
+              <li>Gimnasios y centros de yoga de Ranelagh.</li>
+            </ul>
+          </div>
+
+          <!-- 2. Actividades Clave -->
+          <div class="canvas-cell border-l-4 border-l-emerald-600">
+            <h4>⚙️ Actividades Clave</h4>
+            <ul>
+              <li>Compra directa a quintas agroecológicas.</li>
+              <li>Fraccionamiento seguro sin TACC.</li>
+              <li>Asesoramiento nutricional en mostrador.</li>
+              <li>Elaboración propia de Crema Andina y granolas.</li>
+              <li>Logística de delivery en zona sur.</li>
+            </ul>
+          </div>
+
+          <!-- 3. Propuesta de Valor -->
+          <div class="canvas-cell border-l-4 border-l-amber-500 bg-amber-50/40">
+            <h4 class="text-amber-900">🎁 Propuesta de Valor</h4>
+            <ul>
+              <li>Comida real sin agrotóxicos en el corazón de Ranelagh.</li>
+              <li>Asesoría profesional de nutricionista en tienda.</li>
+              <li>Sistema a granel en frascos retornables cero plásticos.</li>
+              <li>Garantía estricta libre de gluten certificada.</li>
+              <li>Línea exclusiva propia de alto valor nutricional.</li>
+            </ul>
+          </div>
+
+          <!-- 4. Relaciones con Clientes -->
+          <div class="canvas-cell border-l-4 border-l-teal-600">
+            <h4>❤️ Relación con Clientes</h4>
+            <ul>
+              <li>Trato cercano y personalizado por nombre de pila.</li>
+              <li>Comunidad activa en WhatsApp con recetas y tips.</li>
+              <li>Premios y descuentos por retorno de frascos.</li>
+              <li>Degustaciones gratuitas y talleres mensuales.</li>
+            </ul>
+          </div>
+
+          <!-- 5. Segmentos de Clientes -->
+          <div class="canvas-cell border-l-4 border-l-indigo-600">
+            <h4>👥 Segmentos de Clientes</h4>
+            <ul>
+              <li>Familias y vecinos de Ranelagh y Berazategui.</li>
+              <li>Personas celíacas, diabéticas, veganas o intolerantes.</li>
+              <li>Deportistas y aficionados al fitness.</li>
+              <li>Consumidores ecologistas que evitan plásticos.</li>
+            </ul>
+          </div>
+
+          <!-- 6. Recursos Clave -->
+          <div class="canvas-cell border-l-4 border-l-emerald-500">
+            <h4>📦 Recursos Clave</h4>
+            <ul>
+              <li>Local comercial cálido en Calle 361 Ranelagh.</li>
+              <li>Heladera de 4 puertas y balanza Systel.</li>
+              <li>Molino procesador de frutos secos.</li>
+              <li>Equipo profesional (nutrición y logística).</li>
+              <li>Plataforma web y WhatsApp Business.</li>
+            </ul>
+          </div>
+
+          <!-- 7. Canales -->
+          <div class="canvas-cell border-l-4 border-l-blue-500">
+            <h4>🚚 Canales</h4>
+            <ul>
+              <li>Local físico a la calle en Ranelagh.</li>
+              <li>Tienda online www.vitalia-almacen.com.ar.</li>
+              <li>Catálogo y pedidos por WhatsApp comercial.</li>
+              <li>Redes sociales (Instagram y TikTok).</li>
+              <li>Delivery propio programado en zona sur.</li>
+            </ul>
+          </div>
+
+          <!-- 8. Estructura de Costos -->
+          <div class="canvas-cell border-t-4 border-t-rose-600 col-span-2">
+            <h4>💸 Estructura de Costos</h4>
+            <ul>
+              <li>Alquiler del local, energía eléctrica comercial, agua y gas.</li>
+              <li>Costo de mercadería mayorista a cooperativas y distribuidores.</li>
+              <li>Monotributo AFIP e Ingresos Brutos simplificados ARBA.</li>
+              <li>Pauta publicitaria digital en Meta y TikTok.</li>
+              <li>Embalajes compostables y mantenimiento preventivo.</li>
+            </ul>
+          </div>
+
+          <!-- 9. Fuentes de Ingresos -->
+          <div class="canvas-cell border-t-4 border-t-emerald-700 col-span-3 bg-emerald-50/40">
+            <h4>💵 Fuentes de Ingresos</h4>
+            <ul>
+              <li>Venta minorista de frutos secos, semillas y legumbres a granel (45% de ingresos).</li>
+              <li>Venta de productos envasados certificados sin TACC y orgánicos (25%).</li>
+              <li>Bolsones de verdura agroecológica semanal por suscripción (15%).</li>
+              <li>Venta de productos de autor propios: Crema Andina Crunch y granolas (12%).</li>
+              <li>Costos de envío a domicilio zonal (3%).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 19: CUESTIÓN IMPOSITIVA (AFIP/ARCA Y ARBA)
+         ========================================== -->
+    <article id="punto-19" class="section-card" data-category="gestion">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">19</span>
+          <div>
+            <h2 class="section-title">Cuestión Impositiva: Encuadre en AFIP / ARCA & ARBA</h2>
+            <p class="section-subtitle">Procedimiento formal de inscripción, selección técnica de la categoría del
+              Monotributo y detalle de cuotas mensuales.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+
+        <!-- 19.a: Paso a Paso -->
+        <h4 class="font-bold text-[#1b4332] text-sm mb-2">19.a) Trámite de Inscripción Paso a Paso en AFIP / ARCA</h4>
+        <div class="space-y-2 mb-6 text-xs text-gray-700">
+          <div class="p-2.5 bg-gray-50 border border-gray-200 rounded">
+            <strong>1. Obtención de CUIT Digital:</strong> Tramitado a través de la app oficial 'Mi AFIP' validando
+            datos biométricos y DNI argentino vigente.
+          </div>
+          <div class="p-2.5 bg-gray-50 border border-gray-200 rounded">
+            <strong>2. Clave Fiscal Nivel 3:</strong> Validación de seguridad con reconocimiento facial móvil para
+            autorizar gestiones tributarias.
+          </div>
+          <div class="p-2.5 bg-gray-50 border border-gray-200 rounded">
+            <strong>3. Adhesión al Domicilio Fiscal Electrónico:</strong> Registro formal del correo electrónico y
+            teléfono para notificaciones oficiales obligatorias.
+          </div>
+          <div class="p-2.5 bg-gray-50 border border-gray-200 rounded">
+            <strong>4. Código de Actividad Económica (CLAE):</strong> Alta en el código de AFIP <strong>472190: "Venta
+              al por menor de productos alimenticios n.c.p., en comercios especializados"</strong> (dietéticas,
+            productos naturales y frutos secos).
+          </div>
+          <div class="p-2.5 bg-gray-50 border border-gray-200 rounded">
+            <strong>5. Emisión de Comprobantes:</strong> Habilitación de punto de venta digital para Factura Electrónica
+            Clase 'C' mediante el sistema 'Comprobantes en Línea' y lector fiscal.
+          </div>
+        </div>
+
+        <!-- 19.b y 19.c: Categoría y Pagos -->
+        <div class="grid-2">
+          <div class="info-card border-l-4 border-l-emerald-600">
+            <h4 class="text-emerald-900 text-sm">19.b) Categoría del Monotributo Elegida</h4>
+            <p class="text-base font-extrabold text-[#1b4332] mt-1">CATEGORÍA C (Venta de Cosas Muebles)</p>
+            <p class="text-xs text-gray-700 mt-2 leading-relaxed">
+              <strong>Justificación Técnica:</strong> Proyectamos una facturación bruta anual inicial de $12.800.000 ARS
+              para el primer año, la cual encuadra holgadamente en la Categoría C para comercio. Además, la superficie
+              del local en Ranelagh es de 45 m² (el límite de la Cat. C permite hasta 60 m²) y el consumo eléctrico
+              estimado es de 4.800 kWh anuales (dentro del tope de 6.700 kWh).
+            </p>
+          </div>
+
+          <div class="info-card border-l-4 border-l-blue-600">
+            <h4 class="text-blue-900 text-sm">19.c) Liquidación Mensual a Pagar</h4>
+            <div class="space-y-1.5 text-xs text-gray-700 mt-2">
+              <div class="flex justify-between py-1 border-b border-gray-100">
+                <span>Impuesto Integrado (Comercio):</span>
+                <span class="font-bold text-gray-900">$ 6.700</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-gray-100">
+                <span>Aporte Jubilatorio Previsional (SIPA):</span>
+                <span class="font-bold text-gray-900">$ 13.800</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-gray-100">
+                <span>Aporte a Obra Social Nacional:</span>
+                <span class="font-bold text-gray-900">$ 14.900</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-gray-100">
+                <span>Ingresos Brutos Simplificados ARBA (Bs. As.):</span>
+                <span class="font-bold text-gray-900">$ 18.500</span>
+              </div>
+              <div
+                class="flex justify-between pt-2 text-emerald-900 font-extrabold text-sm border-t-2 border-emerald-300">
+                <span>TOTAL MENSUAL ESTIMADO:</span>
+                <span>$ 53.900 ARS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ==========================================
+         PUNTO 20: DIAGRAMA DE GANTT (16 SEMANAS)
+         ========================================== -->
+    <article id="punto-20" class="section-card" data-category="gestion">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">20</span>
+          <div>
+            <h2 class="section-title">Diagrama de Gantt: Gestión de Proyecto (16 Semanas)</h2>
+            <p class="section-subtitle">Cronograma interactivo estructurado en 5 fases críticas para el lanzamiento y
+              apertura oficial de Vitalia en Ranelagh.</p>
+          </div>
+        </div>
+        <span id="ganttProgressStats" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+          Avance: 6/15 tareas (40%)
+        </span>
+      </div>
+      <div class="section-body">
+
+        <!-- Filtro de Fases -->
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-gray-700">Filtrar por Fase:</span>
+            <select id="ganttPhaseFilter" class="text-xs p-1.5 rounded border border-gray-300 bg-white font-semibold">
+              <option value="ALL">Todas las Fases (16 Semanas)</option>
+              <option value="fase-1">Fase 1: Planificación Legal y Local (S1-S4)</option>
+              <option value="fase-2">Fase 2: Acondicionamiento y Equipamiento (S4-S8)</option>
+              <option value="fase-3">Fase 3: Proveedores y Stock Inicial (S8-S11)</option>
+              <option value="fase-4">Fase 4: Marketing y Expectativa (S11-S14)</option>
+              <option value="fase-5">Fase 5: Apertura y Operación (S14-S16)</option>
+            </select>
+          </div>
+          <div class="flex items-center gap-2 text-[11px]">
+            <span class="inline-block w-3 h-3 rounded bg-emerald-700"></span> Fase 1
+            <span class="inline-block w-3 h-3 rounded bg-[#40916c]"></span> Fase 2
+            <span class="inline-block w-3 h-3 rounded bg-[#52b788]"></span> Fase 3
+            <span class="inline-block w-3 h-3 rounded bg-[#d97706]"></span> Fase 4
+            <span class="inline-block w-3 h-3 rounded bg-[#c86d51]"></span> Fase 5
+          </div>
+        </div>
+
+        <!-- Visualizador del Gantt -->
+        <div class="gantt-wrapper">
+          <!-- Cabecera de Semanas -->
+          <div class="gantt-header">
+            <div class="text-left pl-2">Tarea / Fase del Proyecto</div>
+            <div>S1</div>
+            <div>S2</div>
+            <div>S3</div>
+            <div>S4</div>
+            <div>S5</div>
+            <div>S6</div>
+            <div>S7</div>
+            <div>S8</div>
+            <div>S9</div>
+            <div>S10</div>
+            <div>S11</div>
+            <div>S12</div>
+            <div>S13</div>
+            <div>S14</div>
+            <div>S15</div>
+            <div>S16</div>
+          </div>
+
+          <!-- Filas de Tareas del Gantt (Llenadas por gantt.js) -->
+          <div id="ganttChartRows">
+            <!-- Dinámico -->
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ========================================================
+       PIE DE PÁGINA (FOOTER)
+       ======================================================== -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="flex items-center gap-3.5">
+        <img src="isotipo.jpg" alt="Vitalia Isotipo"
+          style="width: 44px; height: 44px; object-fit: contain; border-radius: 8px; background: #ffffff; padding: 3px;">
+        <div>
+          <p class="font-extrabold text-white text-base">VITALIA - Almacén Saludable</p>
+          <p class="text-xs text-gray-400 mt-0.5">Calle 361 N° 1245 • Ranelagh • WhatsApp: +54 9 11 3755-4748 •
+            Vitaliaranelagh@gmail.com</p>
+          <div class="mt-2">
+            <a href="web_oficial.html" target="_blank"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
+              <span>🌿 Visitar la Web Oficial & Tienda Online de Vitalia</span>
+              <span>➔</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center md:text-right text-xs text-gray-400">
+        <p>Plan de Negocios Integral Desarrollado de 20 Puntos • 2026</p>
+        <p class="text-emerald-400 font-semibold mt-0.5">«Nutrí tu vida desde la raíz»</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts de la Aplicación -->
+  <script src="data.js"></script>
+  <script src="pitch.js"></script>
+  <script src="charts.js"></script>
+  <script src="calculator.js"></script>
+  <script src="gantt.js"></script>
+  <script src="app.js"></script>
+
+  <!-- Motor de Animaciones de Scroll y Progreso de Lectura -->
+  <script>
+  (function() {
+    // === Barra de Progreso de Lectura ===
+    const progressBar = document.getElementById('readingProgress');
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (progressBar) progressBar.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+
+    // === Scroll-Triggered Animations (IntersectionObserver) ===
+    function initScrollAnimations() {
+      const animElements = document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale-in');
+      if (!animElements.length) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      animElements.forEach(el => observer.observe(el));
+    }
+
+    // === Aplicar clases de animación automáticamente a las secciones ===
+    function autoTagAnimations() {
+      // Cada section-card se anima al entrar
+      document.querySelectorAll('.section-card').forEach((card, i) => {
+        card.classList.add('anim-fade-up');
+        card.style.animationDelay = (i * 0.04) + 's';
+      });
+      // Info-cards dentro de grids
+      document.querySelectorAll('.grid-2 > .info-card, .grid-3 > .info-card, .grid-4 > .info-card').forEach(card => {
+        card.classList.add('anim-scale-in');
+      });
+      // Calc summary cards
+      document.querySelectorAll('.calc-summary-card').forEach(card => {
+        card.classList.add('anim-fade-up');
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      autoTagAnimations();
+      initScrollAnimations();
+    });
+  })();
+  </script>
+
+</body>
+
+</html>

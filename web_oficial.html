@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VITALIA • Almacén Saludable | Web Oficial & Tienda Online (Ranelagh)</title>
+  <meta name="description" content="Tienda oficial de Vitalia Almacén Saludable en Ranelagh. Alimentos agroecológicos, frutos secos activados, línea 100% Sin TACC y productos de autor sin ultraprocesados. Envíos en el día.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans (Tipografía moderna de alto impacto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Favicon oficial con el Isotipo -->
+  <link rel="icon" type="image/jpeg" href="isotipo.jpg">
+  <link rel="apple-touch-icon" href="isotipo.jpg">
+
+  <!-- Hoja de Estilos de la Web Oficial (Estilo Adidas / Alto Rendimiento & Bienestar) -->
+  <link rel="stylesheet" href="css/oficial.css">
+</head>
+<body>
+
+  <!-- ========================================================
+       TOP TICKER / BARRA MARQUEE DE ANUNCIOS (ESTILO ADIDAS)
+       ======================================================== -->
+  <aside class="top-ticker-bar" aria-label="Anuncios y promociones">
+    <div class="ticker-track">
+      <div class="ticker-item">
+        <span>🚚 ENVÍOS SIN CARGO EN RANELAGH Y ZONA SUR EN COMPRAS +$25.000</span>
+        <span class="ticker-dot"></span>
+      </div>
+      <div class="ticker-item">
+        <span>♻️ PLAN RETORNO: TRAÉ TU FRASCO DE VIDRIO Y RECIBÍ $500 DE CRÉDITO</span>
+        <span class="ticker-dot"></span>
+      </div>
+      <div class="ticker-item">
+        <span>📲 PEDIDOS DIRECTOS POR WHATSAPP: +54 9 11 3755-4748</span>
+        <span class="ticker-dot"></span>
+      </div>
+      <div class="ticker-item">
+        <span>📸 SEGUINOS EN INSTAGRAM Y TIKTOK: @VITALIARANELAGH</span>
+        <span class="ticker-dot"></span>
+      </div>
+      <div class="ticker-item">
+        <span>🌾 100% AGROECOLÓGICO • CERTIFICADO UTT</span>
+        <span class="ticker-dot"></span>
+      </div>
+      <div class="ticker-item">
+        <span>🎉 10% OFF CON CUPÓN: <strong>VITALIA10</strong></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================
+       CABECERA Y NAVBAR PRINCIPAL (STICKY ADIDAS STYLE)
+       ======================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      
+      <!-- Imagotipo Oficial Vitalia -->
+      <a href="#hero" class="brand-link" title="Vitalia Almacén Saludable - Inicio">
+        <img src="imagotipo.jpg" alt="VITALIA Almacén Saludable" class="brand-imagotipo-nav" style="height: 48px; width: auto; object-fit: contain; mix-blend-mode: multiply;">
+      </a>
+
+      <!-- Navegación Principal -->
+      <nav aria-label="Navegación principal">
+        <ul class="nav-menu">
+          <li><a href="#catalogo" class="nav-link active">Catálogo 2026</a></li>
+          <li><a href="#innovacion" class="nav-link">Crema Andina <span class="nav-badge-pill">NUEVO</span></a></li>
+          <li><a href="#historia" class="nav-link">Nuestra Historia</a></li>
+          <li><a href="#sustentabilidad" class="nav-link">Modelo Circular</a></li>
+          <li><a href="#comunidad" class="nav-link">Comunidad</a></li>
+        </ul>
+      </nav>
+
+      <!-- Acciones de Navegación y Carrito -->
+      <div class="header-actions">
+        <!-- Acceso directo al Plan de Negocios Integral -->
+        <a href="index.html" class="btn-bizplan-bridge" title="Ver Plan de Negocios Integral de 20 Puntos">
+          <span>📊 Plan de Negocios ↗</span>
+        </a>
+
+        <!-- Botón de Favoritos (Wishlist) -->
+        <button class="icon-btn" onclick="document.getElementById('catalogo').scrollIntoView({behavior: 'smooth'})" title="Favoritos">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="icon-counter-badge" id="wishlistCountBadge">0</span>
+        </button>
+
+        <!-- Botón de Carrito de Compras (Abre el Drawer) -->
+        <button class="icon-btn" id="btnOpenCart" title="Abrir Carrito">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="icon-counter-badge" id="cartCountBadge">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========================================================
+         HERO SECTION (ALTO IMPACTO STATEMENT BANNER)
+         ======================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-background-wrapper">
+        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1920&q=85" 
+             alt="Vitalia Almacén Saludable Ranelagh" 
+             class="hero-bg-image">
+        <div class="hero-gradient-overlay"></div>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-tag-badge">
+            <span class="pulse-dot"></span>
+            <span>TEMPORADA 2026 • RANELAGH, BS. AS.</span>
+          </div>
+
+          <h1 class="hero-headline">
+            COMIDA REAL.<br>
+            <span class="text-gradient">RENDIMIENTO PURO.</span>
+          </h1>
+
+          <p class="hero-subhead">
+            El primer almacén saludable de Ranelagh que democratiza la alimentación consciente. Alimentos agroecológicos locales, granel en frascos retornables y nutrición limpia sin ultraprocesados para quienes buscan vivir al 100%.
+          </p>
+
+          <div class="hero-actions-group">
+            <a href="#catalogo" class="btn-adidas-solid">
+              <span>EXPLORAR CATÁLOGO ➔</span>
+            </a>
+            <a href="#historia" class="btn-adidas-outline">
+              <span>CONOCER NUESTRA HISTORIA</span>
+            </a>
+          </div>
+
+          <!-- Barra de Confianza / Pilares de Marca -->
+          <div class="hero-trust-bar">
+            <div class="trust-item">
+              <div class="trust-icon-box">🌿</div>
+              <div>
+                <div class="trust-label">100% Agroecológico</div>
+                <div class="trust-desc">Cero pesticidas sintéticos</div>
+              </div>
+            </div>
+
+            <div class="trust-item">
+              <div class="trust-icon-box">🌾</div>
+              <div>
+                <div class="trust-label">Línea Sin TACC</div>
+                <div class="trust-desc">Certificación segura &lt;5 ppm</div>
+              </div>
+            </div>
+
+            <div class="trust-item">
+              <div class="trust-icon-box">♻️</div>
+              <div>
+                <div class="trust-label">Modelo Circular</div>
+                <div class="trust-desc">Frascos retornables -$500 c/u</div>
+              </div>
+            </div>
+
+            <div class="trust-item">
+              <div class="trust-icon-box">📍</div>
+              <div>
+                <div class="trust-label">Ranelagh Local</div>
+                <div class="trust-desc">Calle 361 N° 1245</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         THE 4 CATEGORY DROPS (GRILLA DE LOS 4 PRODUCTOS OFICIALES)
+         ======================================================== -->
+    <section class="category-drops-section">
+      <div class="category-grid">
+
+        <!-- Drop 1: Crema Andina Crunch -->
+        <a href="#catalogo" onclick="selectFilterFromHero('exclusivos')" class="cat-drop-card">
+          <img src="crema andina.jfif" 
+               alt="Vitalia Crema Andina Crunch" class="cat-drop-img">
+          <div class="cat-drop-gradient"></div>
+          <div class="cat-drop-content">
+            <div class="cat-drop-number">PRODUCTO 01</div>
+            <h3 class="cat-drop-title">CREMA ANDINA CRUNCH</h3>
+            <p class="cat-drop-desc">Cajú, cacao puro 100%, maca andina y quinoa pop. Cero azúcar refinada.</p>
+            <span class="cat-drop-cta">VER PRODUCTO ➔</span>
+          </div>
+        </a>
+
+        <!-- Drop 2: Mix Funcional Energy -->
+        <a href="#catalogo" onclick="selectFilterFromHero('frutos')" class="cat-drop-card">
+          <img src="energyvitalia.jpg" 
+               alt="Mix Funcional Vitalia Energy" class="cat-drop-img">
+          <div class="cat-drop-gradient"></div>
+          <div class="cat-drop-content">
+            <div class="cat-drop-number">PRODUCTO 02</div>
+            <h3 class="cat-drop-title">MIX FUNCIONAL ENERGY</h3>
+            <p class="cat-drop-desc">Nueces Chandler partidas a mano, almendras activadas y semillas nobles.</p>
+            <span class="cat-drop-cta">VER PRODUCTO ➔</span>
+          </div>
+        </a>
+
+        <!-- Drop 3: Bolsón Agroecológico -->
+        <a href="#catalogo" onclick="selectFilterFromHero('bolsones')" class="cat-drop-card">
+          <img src="bolson.jpg" 
+               alt="Bolsón Agroecológico de Quinta" class="cat-drop-img">
+          <div class="cat-drop-gradient"></div>
+          <div class="cat-drop-content">
+            <div class="cat-drop-number">PRODUCTO 03</div>
+            <h3 class="cat-drop-title">BOLSÓN AGROECOLÓGICO (7 KG)</h3>
+            <p class="cat-drop-desc">Hortalizas frescas cosechadas en menos de 24 hs en quintas locales UTT.</p>
+            <span class="cat-drop-cta">VER PRODUCTO ➔</span>
+          </div>
+        </a>
+
+        <!-- Drop 4: Premezcla Sin TACC -->
+        <a href="#catalogo" onclick="selectFilterFromHero('sintacc')" class="cat-drop-card">
+          <img src="premezcla_sintacc.png" 
+               alt="Premezcla Universal Sin TACC" class="cat-drop-img">
+          <div class="cat-drop-gradient"></div>
+          <div class="cat-drop-content">
+            <div class="cat-drop-number">PRODUCTO 04</div>
+            <h3 class="cat-drop-title">PREMEZCLA SIN TACC (1 KG)</h3>
+            <p class="cat-drop-desc">Harinas puras y goma xántica para panes y pizzas caseras seguras (&lt;5 ppm).</p>
+            <span class="cat-drop-cta">VER PRODUCTO ➔</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         CATÁLOGO PRINCIPAL INTERACTIVO (LOS 4 PRODUCTOS OFICIALES)
+         ======================================================== -->
+    <section class="catalog-section" id="catalogo">
+      <div class="catalog-container">
+
+        <div class="section-header-row">
+          <div>
+            <span class="eyebrow-tag">NUESTROS 4 PRODUCTOS PRINCIPALES (PUNTOS 7 Y 9)</span>
+            <h2 class="headline-section">CATÁLOGO OFICIAL VITALIA</h2>
+          </div>
+          <p style="max-width: 440px; font-size: 0.875rem; color: #4b5563;">
+            Los 4 alimentos esenciales de Vitalia: nutrición real, agroecología local y formulaciones libres de gluten en frascos retornables. Envíos en el día.
+          </p>
+        </div>
+
+        <!-- Filtros Rápidos de los 4 Productos -->
+        <div class="filter-tabs-row" role="tablist">
+          <button class="filter-tab-btn active" data-filter="todos" role="tab">Todos los 4 Productos</button>
+          <button class="filter-tab-btn" data-filter="exclusivos" role="tab">✨ Crema Andina Crunch</button>
+          <button class="filter-tab-btn" data-filter="frutos" role="tab">🥜 Mix Vitalia Energy</button>
+          <button class="filter-tab-btn" data-filter="bolsones" role="tab">🥬 Bolsón Agroecológico (7 kg)</button>
+          <button class="filter-tab-btn" data-filter="sintacc" role="tab">🌾 Premezcla Sin TACC (1 kg)</button>
+        </div>
+
+        <!-- Grilla Dinámica de Productos (Llenada por oficial.js) -->
+        <div class="product-grid" id="productsContainer">
+          <!-- Renderizado dinámicamente con cards Adidas Style -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         FLAGSHIP INNOVATION REVEAL: CREMA ANDINA CRUNCH
+         (ADIDAS SNEAKER SHOWCASE APLICADO A UN ALIMENTO SALUDABLE)
+         ======================================================== -->
+    <section class="innovation-section" id="innovacion">
+      <div class="innovation-ambient-glow" aria-hidden="true"></div>
+
+      <div class="innovation-container">
+        
+        <!-- Media Visual / Producto en Frasco Hexagonal -->
+        <div class="innovation-media">
+          <div class="innovation-image-frame">
+            <img src="energyvitalia.jpg" 
+                 alt="Vitalia Crema Andina Crunch" 
+                 class="innovation-img">
+            
+            <div class="badge-innovation-callout">
+              <strong>FÓRMULA 100% LIMPIA</strong>
+              <span>Sin azúcar blanca • Sin aceite de palma</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detalles Técnicos y Filosofía del Producto -->
+        <div class="innovation-details">
+          <span class="eyebrow-tag" style="color: var(--color-neon-mint);">INNOVACIÓN EXCLUSIVA DE MARCA PROPIA</span>
+          <h2 class="innovation-headline">
+            CREMA ANDINA CRUNCH.<br>
+            <span style="color: var(--color-neon-mint);">REVOLUCIÓN BOTÁNICA.</span>
+          </h2>
+
+          <p class="innovation-subtext">
+            Desarrollamos en nuestro laboratorio culinario la respuesta definitiva a las cremas industriales ultraprocesadas. Una textura untable aterciopelada de cajú con cacao ecuatoriano 100%, el estímulo adaptógeno de la maca andina y una explosión crocante de quinoa pop.
+          </p>
+
+          <!-- Desglose de los 5 Ingredientes Nobles -->
+          <div class="formula-grid">
+            <div class="formula-card">
+              <div class="formula-percent">60%</div>
+              <div class="formula-name">Castañas de Cajú</div>
+              <div class="formula-benefit">Base untuosa con grasas monoinsaturadas</div>
+            </div>
+
+            <div class="formula-card">
+              <div class="formula-percent">18%</div>
+              <div class="formula-name">Cacao Amargo Puro</div>
+              <div class="formula-benefit">Flavonoides antioxidantes de comercio justo</div>
+            </div>
+
+            <div class="formula-card">
+              <div class="formula-percent">10%</div>
+              <div class="formula-name">Quinoa Pop Crocante</div>
+              <div class="formula-benefit">Crocancia sin gluten ni frituras</div>
+            </div>
+
+            <div class="formula-card">
+              <div class="formula-percent">7%</div>
+              <div class="formula-name">Maca Andina</div>
+              <div class="formula-benefit">Adaptógeno energizante sin picos de glucosa</div>
+            </div>
+          </div>
+
+          <!-- Comparativa con Ultraprocesados -->
+          <div class="comparison-card">
+            <p>
+              <strong>VS. CREMAS DE AVELLANAS INDUSTRIALES:</strong> Las marcas tradicionales contienen hasta un <strong>55% de azúcar blanca refinada</strong> y 30% de aceites hidrogenados inflamatorios. Vitalia Crema Andina está endulzada únicamente con <strong>dátiles Medjool</strong> y sal rosa.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <button class="btn-adidas-solid" onclick="addToCart('andina-crunch', 0)">
+              <span>COMPRAR FRASCO 300g ($6.800) ➔</span>
+            </button>
+            <button class="btn-adidas-outline" onclick="openQuickView('andina-crunch')">
+              <span>TABLA NUTRICIONAL COMPLETA</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         NUESTRA HISTORIA (EDITORIAL BRAND STORYTELLING)
+         ======================================================== -->
+    <section class="story-section" id="historia">
+      <div class="story-container">
+        
+        <div class="story-editorial-hero">
+          <span class="eyebrow-tag">ORIGEN & PROPÓSITO • BORN IN RANELAGH</span>
+          <h2 class="story-headline">DE LA SOBREMESA FAMILIAR AL ALMACÉN DEL FUTURO</h2>
+          <p class="story-lead">
+            Vitalia no nació en un escritorio corporativo. Nació de una necesidad real y urgente compartida por unos compañeros de Ranelagh.
+          </p>
+        </div>
+
+        <!-- 3 Capítulos de la Historia -->
+        <div class="story-timeline-grid">
+          
+          <div class="story-milestone-card">
+            <span class="milestone-year-pill">FINES DE 2024</span>
+            <h3 class="milestone-title">1. El Diagnóstico & La Búsqueda</h3>
+            <p class="milestone-text">
+              A uno de los fundadores le quedaba demasiado lejos y costoso una mercado saludable. Al buscar alimentos seguros en Zona Sur, descubrieron que debían viajar semanalmente hasta Berazategui Centro para conseguir harinas puras y frutos secos frescos.
+            </p>
+          </div>
+
+          <div class="story-milestone-card">
+            <span class="milestone-year-pill">AÑO 2025</span>
+            <h3 class="milestone-title">2. La habitación Comunitaria</h3>
+            <p class="milestone-text">
+              Decidieron actuar: comenzaron coordinando compras mayoristas directas con cooperativas de Mendoza y quintas de La Plata. El garage familiar en Ranelagh pronto se convirtió en un punto de encuentro barrial para más de 180 familias que buscaban comida real y asesoramiento honesto.
+            </p>
+          </div>
+
+          <div class="story-milestone-card">
+            <span class="milestone-year-pill">AÑO 2026</span>
+            <h3 class="milestone-title">3. Vitalia Almacén & Granel</h3>
+            <p class="milestone-text">
+              Abrimos nuestro local en Calle 361 N° 1245: un espacio con maderas recuperadas, dispensadores a granel en frascos de vidrio retornables y sin plásticos descartables. Vitalia es hoy el refugio saludable donde nutrirse vuelve a ser simple y transparente.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Cita de los Fundadores -->
+        <div class="founder-quote-banner">
+          <div class="founder-avatar-box">🌿</div>
+          <div class="founder-quote-content">
+            <blockquote>
+              «Comer bien no debería ser una moda costosa ni un laberinto de etiquetas engañosas. En Vitalia creemos que los alimentos vivos nos conectan con la tierra y despiertan nuestra máxima vitalidad cotidiana.»
+            </blockquote>
+            <cite>— Selena y Equipo Fundador de Vitalia • Ranelagh, Buenos Aires</cite>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SUSTENTABILIDAD Y MODELO CIRCULAR (ADIDAS PARLEY STYLE)
+         ======================================================== -->
+    <section class="sustainability-section" id="sustentabilidad">
+      <div class="sustainability-container">
+        
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 3.5rem auto;">
+          <span class="eyebrow-tag">NUESTRO COMPROMISO CON LA TIERRA</span>
+          <h2 class="headline-section">NUTRICIÓN QUE CUIDA EL PLANETA</h2>
+          <p style="font-size: 0.95rem; color: #4b5563; margin-top: 0.5rem;">
+            Cada decisión en Vitalia está pensada para reducir los residuos y apoyar a quienes cultivan la tierra con respeto.
+          </p>
+        </div>
+
+        <div class="values-grid">
+          
+          <div class="value-card">
+            <div class="value-icon">♻️</div>
+            <h3 class="value-title">Plan Frasco Retornable</h3>
+            <p class="value-desc">
+              Comprás tus granolas, pastas y frutos en frascos de vidrio. Al devolverlo limpio en tu próxima compra o delivery, te descontamos $500 de inmediato.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">🚜</div>
+            <h3 class="value-title">Comercio Justo UTT</h3>
+            <p class="value-desc">
+              Trato directo con pequeños productores campesinos del cordón hortícola bonaerense. Cosechado a menos de 20 km de nuestro local.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">🚫</div>
+            <h3 class="value-title">Cero Plásticos de un Uso</h3>
+            <p class="value-desc">
+              Bolsas de papel kraft reciclado, telas reutilizables y embalajes compostables. Eliminamos más de 6.000 bolsas plásticas al año en Ranelagh.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">👩‍⚕️</div>
+            <h3 class="value-title">Asesoría Profesional</h3>
+            <p class="value-desc">
+              Detrás del mostrador y en nuestro WhatsApp te orientan profesionales en nutrición para que aprendas a combinar tus harinas y activar semillas.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TESTIMONIOS Y COMUNIDAD (VOZ DE LOS VECINOS)
+         ======================================================== -->
+    <section class="reviews-section" id="comunidad">
+      <div class="reviews-container">
+        
+        <div style="text-align: center; max-width: 640px; margin: 0 auto 3rem auto;">
+          <span class="eyebrow-tag">#COMUNIDADVITALIA</span>
+          <h2 class="headline-section">LO QUE DICEN NUESTROS VECINOS</h2>
+        </div>
+
+        <div class="reviews-grid">
+          
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              «El Mix Vitalia Energy y la Crema Andina son mi combustible antes de los entrenamientos de running en el Parque de la Estación. La calidad de los frutos secos es inigualable.»
+            </p>
+            <div class="review-author-wrap">
+              <div class="review-avatar">MG</div>
+              <div class="review-author-info">
+                <strong>Martín G.</strong>
+                <span>Runner • Ranelagh Golf Club</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              «Por fin un almacén en Ranelagh donde compro con total tranquilidad para mi hijo con celiaquía. La premezcla Cocina Fácil es un antes y un después para hacer pizzas caseras.»
+            </p>
+            <div class="review-author-wrap">
+              <div class="review-avatar">VM</div>
+              <div class="review-author-info">
+                <strong>Valeria M.</strong>
+                <span>Mamá & Vecina de Calle 361</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              «El Bolsón Agroecológico semanal es una maravilla. El sabor y la frescura de la acelga y los tomates me recuerdan a la huerta de mis abuelos. Y el delivery es puntualísimo.»
+            </p>
+            <div class="review-author-wrap">
+              <div class="review-avatar">ER</div>
+              <div class="review-author-info">
+                <strong>Esteban R.</strong>
+                <span>Cliente Frecuente • Berazategui</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         NEWSLETTER / CLUB VITALIA (CUPÓN 10% OFF)
+         ======================================================== -->
+    <section class="newsletter-banner">
+      <div class="newsletter-container">
+        <span class="eyebrow-tag" style="color: var(--color-neon-mint);">CLUB EXCLUSIVO VITALIA</span>
+        <h2 class="newsletter-headline">SUMATE AL MOVIMIENTO DE COMIDA REAL</h2>
+        <p class="newsletter-subhead">
+          Ingresá tu mail y recibí un <strong>10% de descuento inmediato</strong> en tu primera compra más recetas saludables de temporada.
+        </p>
+
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Ingresá tu correo electrónico..." required>
+          <button type="submit" class="btn-adidas-solid" style="padding: 1rem 1.5rem; white-space: nowrap;">
+            <span>OBTENER 10% OFF ➔</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       SLIDING CART DRAWER (PANEL LATERAL DESLIZABLE ADIDAS)
+       ======================================================== -->
+  <div class="cart-drawer-backdrop" id="cartDrawerBackdrop"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de compras">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">TU CARRITO DE COMPRAS</div>
+      <button class="btn-close-drawer" id="btnCloseCart" title="Cerrar Carrito">✕</button>
+    </div>
+
+    <!-- Progreso hacia Envío Gratis -->
+    <div class="shipping-progress-wrap">
+      <div id="shippingProgressText">Agregá productos para obtener Envío Gratis en Ranelagh</div>
+      <div class="shipping-progress-bar">
+        <div class="shipping-progress-fill" id="shippingProgressFill"></div>
+      </div>
+    </div>
+
+    <!-- Lista de Artículos -->
+    <div class="cart-items-list" id="cartItemsList">
+      <!-- Inyectado por oficial.js -->
+    </div>
+
+    <!-- Estado Vacío -->
+    <div class="cart-empty-state" id="cartEmptyState">
+      <div style="font-size: 3rem; margin-bottom: 0.5rem;">🥣</div>
+      <h4 style="font-weight: 900; text-transform: uppercase;">Tu carrito está vacío</h4>
+      <p>Explorá nuestro catálogo de alimentos agroecológicos y frutos secos para comenzar.</p>
+      <button class="btn-adidas-solid" onclick="closeCartDrawer(); document.getElementById('catalogo').scrollIntoView({behavior: 'smooth'})">
+        VER PRODUCTOS ➔
+      </button>
+    </div>
+
+    <!-- Pie del Carrito con Checkout -->
+    <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
+      
+      <!-- Canje de Frascos Retornables -->
+      <label class="jar-recycle-checkbox">
+        <input type="checkbox" id="chkReturnableJars">
+        <span>Tengo frascos retornables para entregar (-$500 c/u)</span>
+        <input type="number" id="returnableJarsQty" min="1" max="10" value="1" style="display:none; width: 45px; padding: 2px 4px; border: 1px solid #10b981; border-radius: 2px; font-weight: bold; text-align: center;">
+      </label>
+
+      <!-- Dirección de Entrega -->
+      <div class="address-input-wrap">
+        <input type="text" id="deliveryAddressInput" class="address-input" placeholder="Dirección de entrega (ej: Calle 361 y 313, Ranelagh)">
+      </div>
+
+      <!-- Totales -->
+      <div class="cart-summary-line">
+        <span>Subtotal productos:</span>
+        <span id="cartSubtotalDisplay">$0</span>
+      </div>
+
+      <div class="cart-summary-line" id="cartDiscountsRow" style="display: none; color: #047857; font-weight: bold;">
+        <span>Descuentos aplicados:</span>
+        <span id="cartDiscountDisplay">-$0</span>
+      </div>
+
+      <div class="cart-summary-line">
+        <span>Envío en Ranelagh / Zona Sur:</span>
+        <span style="font-weight: 700; color: #10b981;">A coordinar / Gratis +$25k</span>
+      </div>
+
+      <div class="cart-summary-line total">
+        <span>TOTAL:</span>
+        <span id="cartTotalDisplay">$0</span>
+      </div>
+
+      <button class="btn-whatsapp-checkout" onclick="checkoutWhatsApp()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/>
+        </svg>
+        <span>FINALIZAR PEDIDO POR WHATSAPP ➔</span>
+      </button>
+
+    </div>
+  </aside>
+
+  <!-- ========================================================
+       MODAL DE VISTA RÁPIDA / NUTRICIÓN
+       ======================================================== -->
+  <div class="quick-view-modal-backdrop" id="quickViewBackdrop">
+    <div class="quick-view-modal">
+      <button class="quick-modal-close" id="btnCloseQuickModal" title="Cerrar modal">✕</button>
+      <div id="quickViewContent" style="display: contents;">
+        <!-- Inyectado dinámicamente por oficial.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       FOOTER OFICIAL (ADIDAS MINIMALIST DARK LAYOUT)
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <div class="footer-top-grid">
+        
+        <!-- Columna Marca & Propósito -->
+        <div>
+          <img src="imagotipo.jpg" alt="VITALIA Almacén Saludable" style="height: 52px; width: auto; object-fit: contain; margin-bottom: 1rem; border-radius: 6px; background: #ffffff; padding: 4px; display: block;">
+          <p class="footer-brand-manifesto">
+            Almacén saludable agroecológico, dietética moderna y productos de autor en frascos retornables. «Nutrí tu vida desde la raíz».
+          </p>
+          
+          <div class="footer-bizplan-card">
+            <strong>PLAN DE NEGOCIOS 2026</strong>
+            <p>Descubrí el desglose completo de 20 puntos, estudio de mercado, FODA y calculadora financiera.</p>
+            <a href="index.html" class="footer-bizplan-link">Ver Plan de Negocios Integral ➔</a>
+          </div>
+        </div>
+
+        <!-- Columna Tienda Online (Los 4 Productos) -->
+        <div>
+          <h4 class="footer-col-title">PRODUCTOS</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#catalogo" onclick="selectFilterFromHero('exclusivos')">✨ Crema Andina Crunch</a></li>
+            <li class="footer-link-item"><a href="#catalogo" onclick="selectFilterFromHero('frutos')">🥜 Mix Funcional Energy</a></li>
+            <li class="footer-link-item"><a href="#catalogo" onclick="selectFilterFromHero('bolsones')">🥬 Bolsón Agroecológico (7 kg)</a></li>
+            <li class="footer-link-item"><a href="#catalogo" onclick="selectFilterFromHero('sintacc')">🌾 Premezcla Sin TACC (1 kg)</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna Emprendimiento -->
+        <div>
+          <h4 class="footer-col-title">EMPRESA</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#historia">Nuestra Historia en Ranelagh</a></li>
+            <li class="footer-link-item"><a href="#sustentabilidad">Frascos Retornables</a></li>
+            <li class="footer-link-item"><a href="#sustentabilidad">Alianza Cooperativa UTT</a></li>
+            <li class="footer-link-item"><a href="#comunidad">Comunidad & Reseñas</a></li>
+            <li class="footer-link-item"><a href="index.html">Plan de Negocios Integral 2026</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna Contacto Local Ranelagh -->
+        <div>
+          <h4 class="footer-col-title">LOCAL RANELAGH</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item" style="color: #d1d5db;">📍 Calle 361 N° 1245 (e/ 312 y 313)</li>
+            <li class="footer-link-item" style="color: #d1d5db;">Ranelagh, Berazategui (CP 1888)</li>
+            <li class="footer-link-item" style="color: #d1d5db;">⏰ Lun a Sáb: 09:00 a 13:30 hs y 16:30 a 20:30 hs</li>
+            <li class="footer-link-item"><a href="https://wa.me/5491137554748" target="_blank">📲 WhatsApp: +54 9 11 3755-4748</a></li>
+            <li class="footer-link-item"><a href="mailto:Vitaliaranelagh@gmail.com">✉️ Vitaliaranelagh@gmail.com</a></li>
+            <li class="footer-link-item"><a href="https://instagram.com/VitaliaRanelagh" target="_blank">📸 Instagram: @VitaliaRanelagh</a></li>
+            <li class="footer-link-item"><a href="https://tiktok.com/@VitaliaRanelagh" target="_blank">🎵 TikTok: @VitaliaRanelagh</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Barra Inferior de Copyright y Medios de Pago -->
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 VITALIA Almacén Saludable • Todos los derechos reservados. Desarrollado con tecnología web consciente.
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <span>Mercado Pago</span> • <span>Efectivo</span> • <span>Transferencia</span> • <span>MODO</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/oficial.js"></script>
+
+  <script>
+    // Selector rápido de filtro desde banners
+    function selectFilterFromHero(category) {
+      const btn = document.querySelector(`.filter-tab-btn[data-filter="${category}"]`);
+      if (btn) btn.click();
+      document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
